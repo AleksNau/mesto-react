@@ -1,10 +1,10 @@
 
-import './App.css';
+import '../index.css';
 import Footer from './footer.js';
 import Header from './header.js';
 import Main from './main.js';
 
-function App() {
+const App = () => {
   return (
   <div className="root">
     <div className="page">
@@ -109,7 +109,7 @@ function App() {
             </div>
         </li>
     </template>
-    </div>
+</div>
 
   );
 }
