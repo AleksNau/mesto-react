@@ -1,46 +1,30 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Footer from './footer.js';
+import Header from './header.js';
+import Main from './main.js';
 
 function App() {
-  return (<>
+  return (
+  <div className="root">
     <div className="page">
-        <header className="header">
-            <img src="<%=require('./images/logo.svg')%>" alt="логотип" className="header__logo"></img>
-        </header>
-        <main className="main">
-            <section className="profile">
-                <div className="profile__info-conteiner">
-                    <img src="#" alt="Жак Кусто" className="profile__avatar"></img>
-                    <button className="profile__avatar-button">
-                        <a href="#" className="profile__avatar-icon"></a>
-                    </button>
-                    <h1 className="profile__name">Жак-Ив Кусто</h1>
-                    <button type="button" className="profile__edit-button"></button>
-                    <p className="profile__info">Исследователь океана</p>
-                </div>
-                <button type="button" className="profile__add-button"></button>
-            </section>
-            <ul className="elements">
-
-            </ul>
-        </main>
-        <footer className="footer">
-            <p className="footer__trademark">© 2020 Mesto Russia</p>
-        </footer>
+        <Header/>
+        <Main/>
+        <Footer/>
         <div className="popup popup_profile">
             <div className="popup__conteiner">
-                <form name="profile-form" className="popup__form popup__form_profile" method="post" novalidate>
+                <form name="profile-form" className="popup__form popup__form_profile" method="post" noValidate>
                     <button type="button" className="popup__close-button"></button>
                     <fieldset className="popup__fieldset">
                         <legend className="popup__title">Редактировать профиль</legend>
                         <label>
                             <input name="Name" id="name" type="text" className="popup__input popup__input_type_name"
-                                minlength="2" maxlength="40" required></input>
+                                minLength ="2" maxLength="40" required></input>
                             <span id="name-error" className="popup__error">&nbsp;</span>
                         </label>
                         <label>
                             <input name="Info" id="info" type="text" className="popup__input popup__input_type_info"
-                                minlength="2" maxlength="200" required></input>
+                                minLength ="2" maxLength="200" required></input>
                             <span id="info-error" className="popup__error">&nbsp;</span>
                         </label>
                         <button type="submit" className="popup__submit">Сохранить</button>
@@ -51,13 +35,13 @@ function App() {
         <div className="popup popup_add">
             <div className="popup__conteiner">
                 <form name="create_card-form" className="popup__form popup__form_add" id="create_card-form" method="post"
-                    novalidate>
+                    noValidate>
                     <button type="button" className="popup__close-button"></button>
                     <fieldset className="popup__fieldset">
                         <legend className="popup__title">Новое место</legend>
                         <label>
                             <input name="name" id="place" type="text" className="popup__input popup__input_type_place"
-                                placeholder="Название" minlength="2" maxlength="30" required></input>
+                                placeholder="Название" minLength ="2" maxLength="30" required></input>
                             <span id="place-error" className="popup__error"></span>
                         </label>
                         <label>
@@ -82,7 +66,7 @@ function App() {
         <div className="popup popup_remove">
             <div className="popup__conteiner">
                 <form name="remove-form" className="popup__form popup__form_remove" id="remove-form" method="post"
-                    novalidate>
+                    noValidate>
                     <button type="button" className="popup__close-button"></button>
                     <fieldset className="popup__fieldset">
                         <legend className="popup__title popup__title_remove">Вы уверены?</legend>
@@ -95,7 +79,7 @@ function App() {
         <div className="popup popup_avatar">
             <div className="popup__conteiner">
                 <form name="create_card-form" className="popup__form popup__form_avatar" id="avatar-form" method="post"
-                    novalidate>
+                    noValidate>
                     <button type="button" className="popup__close-button"></button>
                     <fieldset className="popup__fieldset">
                         <legend className="popup__title">Обновить аватар</legend>
@@ -125,7 +109,8 @@ function App() {
             </div>
         </li>
     </template>
-    </>
+    </div>
+
   );
 }
 
