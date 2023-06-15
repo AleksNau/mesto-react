@@ -7,7 +7,7 @@ export default function ProfilePopup({active, setActive}) {
         <div className={active ? "popup popup_opened" :"popup"} onClick={() => setActive(false)}>
             <div className="popup__conteiner" onClick={event => event.stopPropagation()}>
                 <form name="profile-form" className="popup__form popup__form_profile" method="post" noValidate>
-                    <CloseButton />
+                    <CloseButton active={active} setActive={setActive}/>
                     <fieldset className="popup__fieldset">
                         <legend className="popup__title">Редактировать профиль</legend>
                         <label>
