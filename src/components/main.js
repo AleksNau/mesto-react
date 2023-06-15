@@ -1,7 +1,8 @@
 import React from 'react';
-const popupProfile = document.querySelector('.popup_profile');
-const popupElementAddNewCard = document.querySelector(".popup_add");
-const popupAvatar = document.querySelector(".popup_avatar");
+import ProfilePopupButton from "./ProfilePopupButton.js";
+import AvatarPopupButton from "./AvatarPopupButton";
+import AddPopupButton from "./AddPopupButton";
+
 function handleEditAvatarClick() {
     document.querySelector(".popup_avatar").classList.add("popup_is-opened");
 }
@@ -19,17 +20,12 @@ const Main = () => {
             <section className="profile">
                 <div className="profile__info-conteiner">
                     <img src="#" alt="Жак Кусто" className="profile__avatar"></img>
-                    <button className="profile__avatar-button"
-                            onClick={handleEditAvatarClick}>
-                        <a href="#" className="profile__avatar-icon"></a>
-                    </button>
+                    <AvatarPopupButton/>
                     <h1 className="profile__name">Жак-Ив Кусто</h1>
-                    <button type="button" className="profile__edit-button"
-                            onClick={handleEditProfileClick}></button>
+                    <ProfilePopupButton/>
                     <p className="profile__info">Исследователь океана</p>
                 </div>
-                <button type="button" className="profile__add-button"
-                        onClick={handleAddPlaceClick}></button>
+                <AddPopupButton/>
             </section>
             <ul className="elements">
 
