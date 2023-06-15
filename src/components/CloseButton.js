@@ -1,5 +1,4 @@
 import React,{useState} from 'react';
-import ProfilePopup from "./ProfilePopup";
 
 
 const CloseButton = ({ active,setActive }) => {

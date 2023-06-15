@@ -1,13 +1,13 @@
 import React from 'react';
 import CloseButton from "./CloseButton";
 
-export default function AddPopup() {
+export default function AddPopup({active, setActive}) {
     return (
-        <div className="popup popup_add popup_opened">
-            <div className="popup__conteiner">
+        <div className={active ? "popup popup_opened" :"popup"} onClick={() => setActive(false)}>
+            <div className="popup__conteiner" onClick={event => event.stopPropagation()}>
                 <form name="create_card-form" className="popup__form popup__form_add" id="create_card-form" method="post"
                       noValidate>
-                    <CloseButton/>
+                    <CloseButton setActive={setActive}/>
                     <fieldset className="popup__fieldset">
                         <legend className="popup__title">Новое место</legend>
                         <label>
