@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import CloseButton from "./CloseButton";
 
-export default function ProfilePopup() {
+export default function ProfilePopup({active, setActive}) {
 
     return (
-        <div className="popup popup_profile popup_opened">
-            <div className="popup__conteiner">
+        <div className={active ? "popup popup_opened" :"popup"} onClick={() => setActive(false)}>
+            <div className="popup__conteiner" onClick={event => event.stopPropagation()}>
                 <form name="profile-form" className="popup__form popup__form_profile" method="post" noValidate>
                     <CloseButton />
                     <fieldset className="popup__fieldset">

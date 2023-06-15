@@ -1,12 +1,12 @@
 import React,{useState} from 'react';
 import ProfilePopup from "./ProfilePopup.js";
 
- const ProfilePopupButton = ({ open }) => {
-    const [isOpen, setIsOpen] = useState(false);
+ const ProfilePopupButton = ({ active,setActive }) => {
+
     return (
         <div>
-            <button type="button" className="profile__edit-button" onClick={() => setIsOpen(!isOpen)}>Open Popup</button>
-            {isOpen && <ProfilePopup />}
+            <button type="button" className="profile__edit-button" onClick={()=>setActive(true)}>Open Popup</button>
+
         </div>
     );
 };

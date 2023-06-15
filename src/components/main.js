@@ -1,20 +1,12 @@
-import React from 'react';
+import React,{useState} from 'react';
 import ProfilePopupButton from "./ProfilePopupButton.js";
 import AvatarPopupButton from "./AvatarPopupButton";
 import AddPopupButton from "./AddPopupButton";
+import ProfilePopup from "./ProfilePopup";
 
-function handleEditAvatarClick() {
-    document.querySelector(".popup_avatar").classList.add("popup_is-opened");
-}
 
-function handleEditProfileClick() {
-    document.querySelector('.popup_profile').classList.add("popup_is-opened");
-}
-
-function handleAddPlaceClick() {
-    document.querySelector(".popup_add").classList.add("popup_is-opened");
-}
-const Main = () => {    
+const Main = () => {
+    const [modalActive, setModalActive] = useState(true);
         return (
             <main className="main">
             <section className="profile">
@@ -22,7 +14,7 @@ const Main = () => {
                     <img src="#" alt="Жак Кусто" className="profile__avatar"></img>
                     <AvatarPopupButton/>
                     <h1 className="profile__name">Жак-Ив Кусто</h1>
-                    <ProfilePopupButton/>
+                    <ProfilePopupButton active={modalActive} setActive={setModalActive}/>
                     <p className="profile__info">Исследователь океана</p>
                 </div>
                 <AddPopupButton/>
@@ -30,6 +22,7 @@ const Main = () => {
             <ul className="elements">
 
             </ul>
+                <ProfilePopup active={modalActive} setActive={setModalActive}/>
         </main>
         )    
 }

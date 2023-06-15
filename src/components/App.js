@@ -6,6 +6,7 @@ import Main from './main.js';
 
 
 const App = () => {
+
   return (
   <div className="root">
     <div className="page">
@@ -36,6 +37,7 @@ const App = () => {
         </div>
 
     </div>
+
     <template className="template-item">
         <li className="elements__item">
             <img src="#" alt="Элемент" className="elements__image"></img>
