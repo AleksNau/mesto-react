@@ -6,7 +6,7 @@ import ProfilePopup from "./ProfilePopup";
 
 
 const Main = () => {
-    const [modalActive, setModalActive] = useState(true);
+    const [modalActive, setModalActive] = useState(false);
         return (
             <main className="main">
             <section className="profile">
