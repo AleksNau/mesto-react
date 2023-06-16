@@ -15,13 +15,7 @@ const App = () => {
         <Footer/>
 
 
-        <div className="popup popup_image-zoom">
-            <div className="popup__conteiner-zoom">
-                <button type="button" className="popup__close-button"></button>
-                <img src="#" alt="" className="popup__image"></img>
-                <p className="popup__place-name">Место</p>
-            </div>
-        </div>
+        
         <div className="popup popup_remove">
             <div className="popup__conteiner">
                 <form name="remove-form" className="popup__form popup__form_remove" id="remove-form" method="post"
