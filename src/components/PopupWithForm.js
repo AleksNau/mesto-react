@@ -2,7 +2,7 @@ import React from 'react';
 
 import CloseButton from "./CloseButton";
 
-export default function ProfilePopup({active, setActive,title,name}) {
+export default function PopupWithForm({active, setActive,title,name}) {
 
     return (
         <div className={active ? "popup popup_opened" :"popup"} onClick={() => setActive(false)}>
