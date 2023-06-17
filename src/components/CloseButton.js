@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-const CloseButton = () => {
+const CloseButton = ({setActive}) => {
     return (
         <div>
-            <button type="button"  className="popup__close-button" ></button>
+            <button type="button"  className="popup__close-button" onClick={() => setActive(false)}></button>
         </div>
     );
 };

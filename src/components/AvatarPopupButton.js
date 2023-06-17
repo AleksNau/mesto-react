@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import AvatarPopup from "./popups/AvatarPopup.js";
+
 
 
 const AvatarPopupButton = ({setActive,setPopupForm,form}) => {
