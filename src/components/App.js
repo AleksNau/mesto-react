@@ -1,11 +1,16 @@
-
+import React,{useEffect,useState} from 'react';
 import '../index.css';
 import Footer from './footer.js';
 import Header from './header.js';
 import Main from './main.js';
-
+import api from "../utils/Api";
+import AddForm from "./AddForm";
 
 const App = () => {
+    const [cards, setCards] = useState([]);
+    React.useEffect(() => {
+api.getCards().then(data => console.log(data))
+    },[cards])
 
   return (
   <div className="root">
@@ -13,9 +18,6 @@ const App = () => {
         <Header/>
         <Main/>
         <Footer/>
-
-
-        
         <div className="popup popup_remove">
             <div className="popup__conteiner">
                 <form name="remove-form" className="popup__form popup__form_remove" id="remove-form" method="post"
