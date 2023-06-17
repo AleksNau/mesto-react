@@ -1,11 +1,10 @@
-import React,{useState} from 'react';
+import React from 'react';
 
 
-const CloseButton = ({ active,setActive }) => {
+const CloseButton = () => {
     return (
         <div>
-            <button type="button"  className="popup__close-button" onClick={()=>setActive(false)}></button>
-
+            <button type="button"  className="popup__close-button" ></button>
         </div>
     );
 };

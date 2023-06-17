@@ -1,14 +1,14 @@
 import React,{useState} from 'react';
-import AvatarPopup from "./AvatarPopup.js";
+import AvatarPopup from "./popups/AvatarPopup.js";
 
 
-const AvatarPopupButton = ({ active,setActive }) => {
-
+const AvatarPopupButton = ({setActive,setPopupForm,form}) => {
     return (
-        <button className="profile__avatar-button" onClick={()=>setActive(true)}>
-
+        <button className="profile__avatar-button" onClick={()=> {
+            setActive(true);
+            setPopupForm(form);
+        }}>
             <a href="#" className="profile__avatar-icon"></a>
-
         </button>
 
     );

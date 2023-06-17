@@ -1,13 +1,12 @@
-import React,{useState} from 'react';
-import AddPopup from "./AddPopup.js";
+import React from 'react';
 
-const AddPopupButton = ({ active,setActive,setTitle,title }) => {
+const AddPopupButton = ({setActive,setPopupForm,form}) => {
     return (
         <div>
             <button type="button" className="profile__add-button"
                     onClick={()=> {
                         setActive(true);
-                        setTitle(title)
+                        setPopupForm(form);
                     }}></button>
         </div>
     );

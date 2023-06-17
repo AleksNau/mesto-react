@@ -1,5 +1,5 @@
 import React from 'react';
-import CloseButton from "./CloseButton";
+import CloseButton from "../CloseButton";
 
 export default function AvatarPopup({active, setActive}) {
     return (

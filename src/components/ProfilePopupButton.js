@@ -1,11 +1,13 @@
-import React,{useState} from 'react';
-import ProfilePopup from "./ProfilePopup.js";
+import React from 'react';
 
- const ProfilePopupButton = ({ active,setActive }) => {
+ const ProfilePopupButton = ({setActive,setPopupForm,form}) => {
 
     return (
         <div>
-            <button type="button" className="profile__edit-button" onClick={()=>setActive(true)}>Open Popup</button>
+            <button type="button" className="profile__edit-button" onClick={()=> {
+                setActive(true);
+                setPopupForm(form);
+            }}>Open Popup</button>
 
         </div>
     );
