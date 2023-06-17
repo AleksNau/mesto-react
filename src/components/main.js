@@ -9,7 +9,7 @@ import PopupWithForm from "./PopupWithForm";
 import AddForm from "./AddForm";
 import AvatarForm from "./AvatarForm";
 import ProfileForm from "./ProfileForm";
-import CardTemplate from "./CardTemplate";
+import Card from "./Card";
 
 
 const Main = ({cards}) => {
@@ -33,7 +33,7 @@ const Main = ({cards}) => {
             </section>
             <ul className="elements">
                 {cards.map((card) => (
-                    <CardTemplate
+                    <Card
                         key={card._id}
                         {...card}
                         src = {card.link}
