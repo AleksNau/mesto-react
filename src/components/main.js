@@ -9,9 +9,10 @@ import PopupWithForm from "./PopupWithForm";
 import AddForm from "./AddForm";
 import AvatarForm from "./AvatarForm";
 import ProfileForm from "./ProfileForm";
+import CardTemplate from "./CardTemplate";
 
 
-const Main = () => {
+const Main = ({cards}) => {
     /*const [isEditProfilePopupOpen, setModalActive] = useState(false);
     const [isEditAvatarPopupOpen, setModalActiveAvatar] = useState(false);
     const [isAddPlacePopupOpen, setModalActiveAdd] = useState(false);
@@ -31,7 +32,14 @@ const Main = () => {
                 <AddPopupButton setActive={setPopupOpen} setPopupForm ={setForm} form={ProfileForm}/>
             </section>
             <ul className="elements">
-
+                {cards.map((card) => (
+                    <CardTemplate
+                        key={card._id}
+                        {...card}
+                        src = {card.link}
+                        name={card.name}
+                    />
+                ))}
             </ul>
                 <PopupWithForm active={isPopupOpen} setActive={setPopupOpen} form={form}/>
         </main>
