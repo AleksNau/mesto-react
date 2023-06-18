@@ -47,7 +47,7 @@ const Main = ({cards,profile}) => {
                     />
                 ))}
             </ul>
-                <PopupWithForm active={isPopupOpen} setActive={setPopupOpen} form={form} popupName={popupName}/>
+                <PopupWithForm isOpen={isPopupOpen} setActive={setPopupOpen} form={form} popupName={popupName}/>
                 <ImagePopup active={isImageOpen} setActive={setImageOpen} image={selectedImage} name={selectedName}/>
             </main>
         )    
