@@ -19,17 +19,20 @@ const Main = ({cards,profile}) => {
     const [isImageOpen, setImageOpen] = useState(false);
     const [selectedImage, handleCardClick ] = useState([]);
     const [selectedName, handleCardName ] = useState([]);
+    //установка нужного имени формы и попапа
+    const [popupName, handlePopupName ] = useState("");
+
         return (
             <main className="main">
             <section className="profile">
                 <div className="profile__info-conteiner">
                     <img src={profile.avatar} alt="Жак Кусто" className="profile__avatar"></img>
-                    <AvatarPopupButton handleEditAvatarClick={setPopupOpen} setPopupForm ={setForm} form={AvatarForm}/>
+                    <AvatarPopupButton handleEditAvatarClick={setPopupOpen} setPopupForm ={setForm} form={AvatarForm} handlePopupName={handlePopupName}/>
                     <h1 className="profile__name">{profile.name}</h1>
-                    <ProfilePopupButton handleEditProfileClick={setPopupOpen} setPopupForm ={setForm} form={ProfileForm}/>
+                    <ProfilePopupButton handleEditProfileClick={setPopupOpen} setPopupForm ={setForm} form={ProfileForm} handlePopupName={handlePopupName}/>
                     <p className="profile__info">{profile.about}</p>
                 </div>
-                <AddPopupButton handleAddPlaceClick={setPopupOpen} setPopupForm ={setForm} form={AddForm}/>
+                <AddPopupButton handleAddPlaceClick={setPopupOpen} setPopupForm ={setForm} form={AddForm} handlePopupName={handlePopupName}/>
             </section>
             <ul className="elements">
                 {cards.map((card) => (
@@ -44,7 +47,7 @@ const Main = ({cards,profile}) => {
                     />
                 ))}
             </ul>
-                <PopupWithForm active={isPopupOpen} setActive={setPopupOpen} form={form}/>
+                <PopupWithForm active={isPopupOpen} setActive={setPopupOpen} form={form} popupName={popupName}/>
                 <ImagePopup active={isImageOpen} setActive={setImageOpen} image={selectedImage} name={selectedName}/>
             </main>
         )    
