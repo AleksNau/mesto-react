@@ -38,6 +38,7 @@ const Main = ({cards}) => {
                         {...card}
                         src = {card.link}
                         name={card.name}
+                        likes={card.likes.length}
                     />
                 ))}
             </ul>
