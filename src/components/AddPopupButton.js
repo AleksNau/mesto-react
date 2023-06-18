@@ -1,11 +1,11 @@
 import React from 'react';
 
-const AddPopupButton = ({setActive,setPopupForm,form}) => {
+const AddPopupButton = ({handleAddPlaceClick,setPopupForm,form}) => {
     return (
         <div>
             <button type="button" className="profile__add-button"
                     onClick={()=> {
-                        setActive(true);
+                        handleAddPlaceClick(true);
                         setPopupForm(form);
                     }}></button>
         </div>

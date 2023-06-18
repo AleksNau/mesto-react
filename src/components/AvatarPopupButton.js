@@ -2,10 +2,10 @@ import React,{useState} from 'react';
 
 
 
-const AvatarPopupButton = ({setActive,setPopupForm,form}) => {
+const AvatarPopupButton = ({handleEditAvatarClick,setPopupForm,form}) => {
     return (
         <button className="profile__avatar-button" onClick={()=> {
-            setActive(true);
+            handleEditAvatarClick(true);
             setPopupForm(form);
         }}>
             <a href="#" className="profile__avatar-icon"></a>

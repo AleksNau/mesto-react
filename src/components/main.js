@@ -2,9 +2,6 @@ import React,{useState} from 'react';
 import ProfilePopupButton from "./ProfilePopupButton.js";
 import AvatarPopupButton from "./AvatarPopupButton";
 import AddPopupButton from "./AddPopupButton";
-import ProfilePopup from "./popups/ProfilePopup";
-import AvatarPopup from "./popups/AvatarPopup";
-import AddPopup from "./popups/AddPopup";
 import PopupWithForm from "./PopupWithForm";
 import AddForm from "./AddForm";
 import AvatarForm from "./AvatarForm";
@@ -14,11 +11,9 @@ import ImagePopup from "./ImagePopup";
 
 
 const Main = ({cards,profile}) => {
-    /*const [isEditProfilePopupOpen, setModalActive] = useState(false);
-    const [isEditAvatarPopupOpen, setModalActiveAvatar] = useState(false);
-    const [isAddPlacePopupOpen, setModalActiveAdd] = useState(false);
-    const [isTitle, setTitle] = useState("");*/
+   //открытие универсального попапа
     const [isPopupOpen, setPopupOpen] = useState(false);
+    //установка нужной формы
     const [form, setForm] = useState(AddForm);
     //popup картинки
     const [isImageOpen, setImageOpen] = useState(false);
@@ -29,12 +24,12 @@ const Main = ({cards,profile}) => {
             <section className="profile">
                 <div className="profile__info-conteiner">
                     <img src={profile.avatar} alt="Жак Кусто" className="profile__avatar"></img>
-                    <AvatarPopupButton setActive={setPopupOpen} setPopupForm ={setForm} form={AvatarForm}/>
+                    <AvatarPopupButton handleEditAvatarClick={setPopupOpen} setPopupForm ={setForm} form={AvatarForm}/>
                     <h1 className="profile__name">{profile.name}</h1>
-                    <ProfilePopupButton setActive={setPopupOpen} setPopupForm ={setForm} form={ProfileForm}/>
+                    <ProfilePopupButton handleEditProfileClick={setPopupOpen} setPopupForm ={setForm} form={ProfileForm}/>
                     <p className="profile__info">{profile.about}</p>
                 </div>
-                <AddPopupButton setActive={setPopupOpen} setPopupForm ={setForm} form={ProfileForm}/>
+                <AddPopupButton handleAddPlaceClick={setPopupOpen} setPopupForm ={setForm} form={AddForm}/>
             </section>
             <ul className="elements">
                 {cards.map((card) => (
