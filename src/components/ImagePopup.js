@@ -1,13 +1,13 @@
 import CloseButton from "./CloseButton";
 
-export default function ImagePopup({active, setActive, card}) {
+export default function ImagePopup({active, setActive, image,name}) {
 
     return (
         <div className={active ? "popup popup_opened" :"popup"} onClick={() => setActive(false)}>
             <div className="popup__conteiner-zoom">
                 <button type="button" className="popup__close-button"></button>
-                <img src={card} alt="" className="popup__image" ></img>
-                <p className="popup__place-name">Место</p>
+                <img src={image} alt="" className="popup__image" ></img>
+                <p className="popup__place-name">{name}</p>
             </div>
         </div>
     )

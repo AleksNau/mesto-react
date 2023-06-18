@@ -22,7 +22,8 @@ const Main = ({cards}) => {
     const [form, setForm] = useState(AddForm);
     //popup картинки
     const [isImageOpen, setImageOpen] = useState(false);
-    const [selectedCard, handleCardClick ] = useState("");
+    const [selectedImage, handleCardClick ] = useState([]);
+    const [selectedName, handleCardName ] = useState([]);
         return (
             <main className="main">
             <section className="profile">
@@ -44,11 +45,12 @@ const Main = ({cards}) => {
                         likes={card.likes.length}
                         activeImage={handleCardClick}
                         active={setImageOpen}
+                        setName={handleCardName}
                     />
                 ))}
             </ul>
                 <PopupWithForm active={isPopupOpen} setActive={setPopupOpen} form={form}/>
-                <ImagePopup active={isImageOpen} setActive={setImageOpen} card={selectedCard}/>
+                <ImagePopup active={isImageOpen} setActive={setImageOpen} image={selectedImage} name={selectedName}/>
             </main>
         )    
 }

@@ -13,7 +13,8 @@ const App = () => {
                 _id: card._id,
                 link: card.link,
                 likes: card.likes,
-                owner: card.owner
+                owner: card.owner,
+                name:card.name
             }
         ))))
     }, [cards])
