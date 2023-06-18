@@ -13,7 +13,7 @@ import Card from "./Card";
 import ImagePopup from "./ImagePopup";
 
 
-const Main = ({cards}) => {
+const Main = ({cards,profile}) => {
     /*const [isEditProfilePopupOpen, setModalActive] = useState(false);
     const [isEditAvatarPopupOpen, setModalActiveAvatar] = useState(false);
     const [isAddPlacePopupOpen, setModalActiveAdd] = useState(false);
@@ -28,11 +28,11 @@ const Main = ({cards}) => {
             <main className="main">
             <section className="profile">
                 <div className="profile__info-conteiner">
-                    <img src="#" alt="Жак Кусто" className="profile__avatar"></img>
+                    <img src={profile.avatar} alt="Жак Кусто" className="profile__avatar"></img>
                     <AvatarPopupButton setActive={setPopupOpen} setPopupForm ={setForm} form={AvatarForm}/>
-                    <h1 className="profile__name">Жак-Ив Кусто</h1>
+                    <h1 className="profile__name">{profile.name}</h1>
                     <ProfilePopupButton setActive={setPopupOpen} setPopupForm ={setForm} form={ProfileForm}/>
-                    <p className="profile__info">Исследователь океана</p>
+                    <p className="profile__info">{profile.about}</p>
                 </div>
                 <AddPopupButton setActive={setPopupOpen} setPopupForm ={setForm} form={ProfileForm}/>
             </section>
