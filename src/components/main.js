@@ -10,6 +10,7 @@ import AddForm from "./AddForm";
 import AvatarForm from "./AvatarForm";
 import ProfileForm from "./ProfileForm";
 import Card from "./Card";
+import ImagePopup from "./ImagePopup";
 
 
 const Main = ({cards}) => {
@@ -19,6 +20,9 @@ const Main = ({cards}) => {
     const [isTitle, setTitle] = useState("");*/
     const [isPopupOpen, setPopupOpen] = useState(false);
     const [form, setForm] = useState(AddForm);
+    //popup картинки
+    const [isImageOpen, setImageOpen] = useState(false);
+    const [selectedCard, handleCardClick ] = useState("");
         return (
             <main className="main">
             <section className="profile">
@@ -35,15 +39,17 @@ const Main = ({cards}) => {
                 {cards.map((card) => (
                     <Card
                         key={card._id}
-                        {...card}
                         src = {card.link}
                         name={card.name}
                         likes={card.likes.length}
+                        activeImage={handleCardClick}
+                        active={setImageOpen}
                     />
                 ))}
             </ul>
                 <PopupWithForm active={isPopupOpen} setActive={setPopupOpen} form={form}/>
-        </main>
+                <ImagePopup active={isImageOpen} setActive={setImageOpen} card={selectedCard}/>
+            </main>
         )    
 }
 
