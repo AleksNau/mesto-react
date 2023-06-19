@@ -5,7 +5,6 @@ export default function AddForm() {
     return (
         <form name="create_card-form" className="popup__form popup__form_add" id="create_card-form" method="post"
               noValidate>
-            <CloseButton />
             <fieldset className="popup__fieldset">
                 <legend className="popup__title">Новое место</legend>
                 <label>

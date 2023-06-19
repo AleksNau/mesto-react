@@ -22,6 +22,11 @@ const Main = ({cards,profile}) => {
     //установка нужного имени формы и попапа
     const [popupName, handlePopupName ] = useState("");
 
+    function closeAllPopups() {
+        setImageOpen(false);
+        setPopupOpen(false);
+      }
+
         return (
             <main className="main">
             <section className="profile">

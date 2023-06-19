@@ -5,7 +5,6 @@ export default function AvatarForm() {
     return (
         <form name="create_card-form" className="popup__form popup__form_avatar" id="avatar-form" method="post"
               noValidate>
-            <CloseButton />
             <fieldset className="popup__fieldset">
                 <legend className="popup__title">Обновить аватар</legend>
                 <label>

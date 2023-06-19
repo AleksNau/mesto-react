@@ -4,7 +4,6 @@ import CloseButton from "./CloseButton";
 export default function ProfileForm() {
     return (
         <form name="profile-form" className="popup__form popup__form_profile" method="post" noValidate>
-            <CloseButton/>
             <fieldset className="popup__fieldset">
                 <legend className="popup__title">Редактировать профиль</legend>
                 <label>
