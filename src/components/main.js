@@ -6,6 +6,7 @@ import PopupWithForm from "./PopupWithForm";
 import AddForm from "./AddForm";
 import AvatarForm from "./AvatarForm";
 import ProfileForm from "./ProfileForm";
+import RemoveForm from './RemoveForm.js';
 import Card from "./Card";
 import ImagePopup from "./ImagePopup";
 
@@ -49,6 +50,10 @@ const Main = ({cards,profile}) => {
                         activeImage={handleCardClick}
                         active={setImageOpen}
                         setName={handleCardName}
+                        isOpen={isPopupOpen}
+                         setActive={setPopupOpen}
+                          form={RemoveForm}
+                          setPopupForm ={setForm}
                     />
                 ))}
             </ul>
