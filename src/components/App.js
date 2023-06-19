@@ -9,7 +9,7 @@ import AddForm from "./AddForm";
 const App = () => {
     const [cards, setCards] = useState([]);
     const [currentUser, setCurrentUser] = React.useState({});
-    React.useEffect(() => {
+    /*React.useEffect(() => {
         api.getCards().then(data => setCards(data.map(card => ({
                 _id: card._id,
                 link: card.link,
@@ -26,7 +26,17 @@ const App = () => {
             console.log(info)
         }
         )
-            },[])
+            },[])*/
+
+
+    React.useEffect(() => {
+    Promise.all([api.getProfileInfo(), api.getCards()])
+      .then(([info, cards]) => {
+        setCurrentUser(info);
+        setCards(cards);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
 
     return (
