@@ -1,12 +1,12 @@
 import React from 'react';
 import PopupWithForm from './PopupWithForm';
 
-export default function EditAvatarPopup({isOpen,setActive,handlePopupName}) {
+export default function EditAvatarPopup({isOpen,setActive,name}) {
     return (
         <PopupWithForm
         isOpen={isOpen}
-        setActive={setActive}  
-        handlePopupName={handlePopupName}
+        setActive={setActive}
+        name={name}
         children={
             <>
             <legend className="popup__title">Обновить аватар</legend>

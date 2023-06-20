@@ -1,12 +1,12 @@
 import React from 'react';
 import PopupWithForm from './PopupWithForm';
 
-export default function AddCardPopup({isOpen,setActive,handlePopupName}) {
+export default function AddCardPopup({isOpen,setActive,name}) {
     return (
         <PopupWithForm
         isOpen={isOpen}
         setActive={setActive}
-        handlePopupName={handlePopupName}
+        name={name}
         children={
             <>
             <legend className="popup__title">Новое место</legend>

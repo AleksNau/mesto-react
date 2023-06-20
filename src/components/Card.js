@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default function Card({_id,src,name,likes,active,activeImage,setName,isOpen, setActive}) {
+export default function Card({_id,src,name,likes,active,activeImage,setName,isOpen, setActive,handlePopupName}) {
     return (
         <li className="elements__item">
             <img src={src} alt={name} className="elements__image" onClick={()=> {
@@ -17,6 +17,7 @@ export default function Card({_id,src,name,likes,active,activeImage,setName,isOp
                 </div>
                 <button type="button" className="elements__delete" onClick={() => {
 setActive(!isOpen);
+                    handlePopupName("remove")
                 }}></button>
             </div>
         </li>

@@ -13,11 +13,12 @@ const App = () => {
     const [cards, setCards] = useState([]);
     const [currentUser, setCurrentUser] = React.useState({});
     //открытие универсального попапа
-    const [isPopupOpen, setPopupOpen] = useState(false);
     const [isPopupAvatar, setPopupAvatar] = useState(false);
     const [isPopupProfile, setPopupProfile] = useState(false);
     const [isPopupAdd, setPopupAdd] = useState(false);
     const [isPopupSubmit, setPopupSubmit] = useState(false);
+    //установка нужного имени формы и попапа
+    const [popupName, handlePopupName ] = useState("");
 
     React.useEffect(() => {
     Promise.all([api.getProfileInfo(), api.getCards()])
@@ -36,18 +37,18 @@ const App = () => {
                 <Main 
                 cards={cards} 
                 profile={currentUser} 
-                isPopupOpen={isPopupOpen} 
-                setPopupOpen={setPopupOpen} 
+                isPopupSubmit={isPopupSubmit}
                 onEditAvatar={setPopupAvatar}
                 onEditProfile={setPopupProfile}
                 onSubmitDelete={setPopupSubmit}
-                onAddPlace={setPopupAdd}/>
+                onAddPlace={setPopupAdd}
+                handlePopupName={handlePopupName}/>
                 <Footer/>
             </div>
-            <AddCardPopup isOpen={isPopupAdd} setActive={setPopupAdd}></AddCardPopup>
-            <EditProfilePopup isOpen={isPopupProfile} setActive={setPopupProfile}/>
-            <EditAvatarPopup isOpen={isPopupAvatar} setActive={setPopupAvatar}/>
-            <SubmitPopup isOpen={isPopupSubmit} setActive={setPopupSubmit}/>
+            <AddCardPopup isOpen={isPopupAdd} setActive={setPopupAdd} name={popupName}></AddCardPopup>
+            <EditProfilePopup isOpen={isPopupProfile} setActive={setPopupProfile} name={popupName}/>
+            <EditAvatarPopup isOpen={isPopupAvatar} setActive={setPopupAvatar} name={popupName}/>
+            <SubmitPopup isOpen={isPopupSubmit} setActive={setPopupSubmit} name={popupName}/>
         </div>
     );
 }

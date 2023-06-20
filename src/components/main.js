@@ -8,20 +8,13 @@ import ImagePopup from "./ImagePopup";
 
 
 
-const Main = ({cards,profile,isPopupOpen,setPopupOpen,onEditAvatar,onEditProfile,onAddPlace,onSubmitDelete}) => {
+const Main = ({cards,profile,isPopupSubmit,onEditAvatar,onEditProfile,onAddPlace,onSubmitDelete,handlePopupName}) => {
 
     //popup картинки
     const [isImageOpen, setImageOpen] = useState(false);
     const [selectedImage, handleCardClick ] = useState([]);
     const [selectedName, handleCardName ] = useState([]);
-    //установка нужного имени формы и попапа
-    const [popupName, handlePopupName ] = useState("");
 
-    function closeAllPopups() {
-        setImageOpen(false);
-        setPopupOpen(false);
-        selectedImage(null)
-      }
 
         return (
             <main className="main">
@@ -45,8 +38,9 @@ const Main = ({cards,profile,isPopupOpen,setPopupOpen,onEditAvatar,onEditProfile
                         activeImage={handleCardClick}
                         active={setImageOpen}
                         setName={handleCardName}
-                        isOpen={isPopupOpen}
+                        isOpen={isPopupSubmit}
                         setActive={onSubmitDelete}
+                        handlePopupName={handlePopupName}
                     />
                 ))}
             </ul>

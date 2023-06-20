@@ -6,7 +6,7 @@ const AddPopupButton = ({handleAddPlaceClick,handlePopupName}) => {
             <button type="button" className="profile__add-button"
                     onClick={()=> {
                         handleAddPlaceClick(true);
-                        handlePopupName("popup_add")
+                        handlePopupName("add")
                     }}></button>
         </div>
     );
