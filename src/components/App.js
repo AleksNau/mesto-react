@@ -9,25 +9,8 @@ import AddForm from "./AddForm";
 const App = () => {
     const [cards, setCards] = useState([]);
     const [currentUser, setCurrentUser] = React.useState({});
-    /*React.useEffect(() => {
-        api.getCards().then(data => setCards(data.map(card => ({
-                _id: card._id,
-                link: card.link,
-                likes: card.likes,
-                owner: card.owner,
-                name:card.name
-            }
-        ))))
-    }, [cards])
-
-    React.useEffect(() => {
-        api.getProfileInfo().then(info => {
-            setCurrentUser(info)
-            console.log(info)
-        }
-        )
-            },[])*/
-
+    //открытие универсального попапа
+    const [isPopupOpen, setPopupOpen] = useState(false);
 
     React.useEffect(() => {
     Promise.all([api.getProfileInfo(), api.getCards()])
@@ -43,12 +26,10 @@ const App = () => {
         <div className="root">
             <div className="page">
                 <Header />
-                <Main cards={cards} profile={currentUser}/>
+                <Main cards={cards} profile={currentUser} isPopupOpen={isPopupOpen} setPopupOpen={setPopupOpen}/>
                 <Footer/>
             </div>
-
         </div>
-
     );
 }
 

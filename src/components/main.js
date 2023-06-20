@@ -11,9 +11,8 @@ import Card from "./Card";
 import ImagePopup from "./ImagePopup";
 
 
-const Main = ({cards,profile}) => {
-   //открытие универсального попапа
-    const [isPopupOpen, setPopupOpen] = useState(false);
+const Main = ({cards,profile,isPopupOpen,setPopupOpen}) => {
+   
     //установка нужной формы
     const [form, setForm] = useState(AddForm);
     //popup картинки
