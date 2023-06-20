@@ -1,10 +1,11 @@
 import React from 'react';
 import PopupWithForm from './PopupWithForm';
 
-export default function EditProfilePopup() {
+export default function EditProfilePopup({isOpen,setActive,handlePopupName}) {
     return (
         <PopupWithForm
-        handleEditProfileClick={setPopupOpen}  
+        isOpen={isOpen}
+        setActive={setActive}  
         handlePopupName={handlePopupName}
         children={
             <>

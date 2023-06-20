@@ -1,12 +1,11 @@
 import React from 'react';
 import PopupWithForm from './PopupWithForm';
 
-export default function AddCardPopup() {
+export default function AddCardPopup({isOpen,setActive,handlePopupName}) {
     return (
         <PopupWithForm
-        handleAddPlaceClick={setPopupOpen}
-        setPopupForm ={setForm} 
-        form={AddForm} 
+        isOpen={isOpen}
+        setActive={setActive}
         handlePopupName={handlePopupName}
         children={
             <>
