@@ -1,5 +1,4 @@
 import React from 'react';
-import CloseButton from "./CloseButton";
 
 export default function AvatarForm() {
     return (

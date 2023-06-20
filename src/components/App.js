@@ -4,7 +4,6 @@ import Footer from './footer.js';
 import Header from './header.js';
 import Main from './main.js';
 import api from "../utils/Api";
-import AddForm from "./AddForm";
 
 const App = () => {
     const [cards, setCards] = useState([]);

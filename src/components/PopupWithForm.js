@@ -1,6 +1,4 @@
-import React,{useState} from 'react';
-
-import CloseButton from "./CloseButton";
+import React from 'react';
 
 export default function PopupWithForm({isOpen, form, popupName,setActive}) {
     return (

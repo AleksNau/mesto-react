@@ -1,4 +1,4 @@
-import CloseButton from "./CloseButton";
+import React from 'react';
 
 export default function ImagePopup({isOpen, setActive, image,name}) {
 

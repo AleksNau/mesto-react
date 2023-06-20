@@ -12,7 +12,6 @@ import ImagePopup from "./ImagePopup";
 
 
 const Main = ({cards,profile,isPopupOpen,setPopupOpen}) => {
-   
     //установка нужной формы
     const [form, setForm] = useState(AddForm);
     //popup картинки
@@ -50,9 +49,9 @@ const Main = ({cards,profile,isPopupOpen,setPopupOpen}) => {
                         active={setImageOpen}
                         setName={handleCardName}
                         isOpen={isPopupOpen}
-                         setActive={setPopupOpen}
-                          form={RemoveForm}
-                          setPopupForm ={setForm}
+                        setActive={setPopupOpen}
+                        form={RemoveForm}
+                        setPopupForm ={setForm}
                     />
                 ))}
             </ul>
