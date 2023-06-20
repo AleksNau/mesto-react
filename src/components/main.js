@@ -3,15 +3,13 @@ import ProfilePopupButton from "./ProfilePopupButton.js";
 import AvatarPopupButton from "./AvatarPopupButton";
 import AddPopupButton from "./AddPopupButton";
 import PopupWithForm from "./PopupWithForm";
-import AddForm from "./AddForm";
 import Card from "./Card";
 import ImagePopup from "./ImagePopup";
 
 
 
 const Main = ({cards,profile,isPopupOpen,setPopupOpen,onEditAvatar,onEditProfile,onAddPlace,onSubmitDelete}) => {
-    //установка нужной формы
-    const [form, setForm] = useState(AddForm);
+
     //popup картинки
     const [isImageOpen, setImageOpen] = useState(false);
     const [selectedImage, handleCardClick ] = useState([]);
