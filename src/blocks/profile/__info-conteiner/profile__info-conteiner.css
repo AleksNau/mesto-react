@@ -1,8 +1,13 @@
+
 .profile__info-conteiner {
+    display: -ms-grid;
     display: grid;
-    grid-template-areas:
+        grid-template-areas:
     "image name button"
     "image info .";
+    -ms-grid-columns:  minmax(-webkit-min-content, -webkit-max-content)  minmax(-webkit-min-content, -webkit-max-content) minmax(-webkit-min-content, -webkit-max-content);
+    -ms-grid-columns:  minmax(min-content, max-content)  minmax(min-content, max-content) minmax(min-content, max-content);
+    grid-template-columns:  minmax(-webkit-min-content, -webkit-max-content)  minmax(-webkit-min-content, -webkit-max-content) minmax(-webkit-min-content, -webkit-max-content);
     grid-template-columns:  minmax(min-content, max-content)  minmax(min-content, max-content) minmax(min-content, max-content);
 }
 

@@ -24,6 +24,7 @@ const Main = ({cards,profile,isPopupOpen,setPopupOpen}) => {
     function closeAllPopups() {
         setImageOpen(false);
         setPopupOpen(false);
+        selectedImage(null)
       }
 
         return (
