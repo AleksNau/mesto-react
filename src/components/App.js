@@ -17,6 +17,7 @@ const App = () => {
     const [isPopupAvatar, setPopupAvatar] = useState(false);
     const [isPopupProfile, setPopupProfile] = useState(false);
     const [isPopupAdd, setPopupAdd] = useState(false);
+    const [isPopupSubmit, setPopupSubmit] = useState(false);
 
     React.useEffect(() => {
     Promise.all([api.getProfileInfo(), api.getCards()])
@@ -39,13 +40,14 @@ const App = () => {
                 setPopupOpen={setPopupOpen} 
                 onEditAvatar={setPopupAvatar}
                 onEditProfile={setPopupProfile}
+                onSubmitDelete={setPopupSubmit}
                 onAddPlace={setPopupAdd}/>
                 <Footer/>
             </div>
             <AddCardPopup isOpen={isPopupAdd} setActive={setPopupAdd}></AddCardPopup>
             <EditProfilePopup isOpen={isPopupProfile} setActive={setPopupProfile}/>
             <EditAvatarPopup isOpen={isPopupAvatar} setActive={setPopupAvatar}/>
-            <SubmitPopup/>
+            <SubmitPopup isOpen={isPopupSubmit} setActive={setPopupSubmit}/>
         </div>
     );
 }

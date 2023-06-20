@@ -4,15 +4,12 @@ import AvatarPopupButton from "./AvatarPopupButton";
 import AddPopupButton from "./AddPopupButton";
 import PopupWithForm from "./PopupWithForm";
 import AddForm from "./AddForm";
-import AvatarForm from "./AvatarForm";
-import ProfileForm from "./ProfileForm";
-import RemoveForm from './RemoveForm.js';
 import Card from "./Card";
 import ImagePopup from "./ImagePopup";
 
 
 
-const Main = ({cards,profile,isPopupOpen,setPopupOpen,onEditAvatar,onEditProfile,onAddPlace}) => {
+const Main = ({cards,profile,isPopupOpen,setPopupOpen,onEditAvatar,onEditProfile,onAddPlace,onSubmitDelete}) => {
     //установка нужной формы
     const [form, setForm] = useState(AddForm);
     //popup картинки
@@ -33,12 +30,12 @@ const Main = ({cards,profile,isPopupOpen,setPopupOpen,onEditAvatar,onEditProfile
             <section className="profile">
                 <div className="profile__info-conteiner">
                     <img src={profile.avatar} alt="Жак Кусто" className="profile__avatar"></img>
-                    <AvatarPopupButton handleEditAvatarClick={onEditAvatar} setPopupForm ={setForm} form={AvatarForm} handlePopupName={handlePopupName}/>
+                    <AvatarPopupButton handleEditAvatarClick={onEditAvatar}  handlePopupName={handlePopupName}/>
                     <h1 className="profile__name">{profile.name}</h1>
-                    <ProfilePopupButton handleEditProfileClick={onEditProfile} setPopupForm ={setForm} form={ProfileForm} handlePopupName={handlePopupName}/>
+                    <ProfilePopupButton handleEditProfileClick={onEditProfile} handlePopupName={handlePopupName}/>
                     <p className="profile__info">{profile.about}</p>
                 </div>
-                <AddPopupButton handleAddPlaceClick={onAddPlace} setPopupForm ={setForm} form={AddForm} handlePopupName={handlePopupName}/>
+                <AddPopupButton handleAddPlaceClick={onAddPlace} handlePopupName={handlePopupName}/>
             </section>
             <ul className="elements">
                 {cards.map((card) => (
@@ -51,9 +48,7 @@ const Main = ({cards,profile,isPopupOpen,setPopupOpen,onEditAvatar,onEditProfile
                         active={setImageOpen}
                         setName={handleCardName}
                         isOpen={isPopupOpen}
-                        setActive={setPopupOpen}
-                        form={RemoveForm}
-                        setPopupForm ={setForm}
+                        setActive={onSubmitDelete}
                     />
                 ))}
             </ul>

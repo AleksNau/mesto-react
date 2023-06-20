@@ -6,7 +6,6 @@ import React from 'react';
 
             <button type="button" className="profile__edit-button" onClick={()=> {
                 handleEditProfileClick(true);
-                setPopupForm(form);
                 handlePopupName("popup_profile")
             }}>Open Popup</button>
 
