@@ -15,15 +15,24 @@ const App = () => {
     const [currentUser, setCurrentUser] = useState({});
     //обработчики попапов
     const [isPopupAvatar, setPopupAvatar] = useState(false);
-    const [isPopupProfile, setPopupProfile] = useState(false);
-    const [isPopupAdd, setPopupAdd] = useState(false);
-    const [isPopupSubmit, setPopupSubmit] = useState(false);
+    const [isEditProfilePopupOpen, setPopupProfile] = useState(false);
+    const [isAddPlacePopupOpen, setPopupAdd] = useState(false);
+    const [isSubmitPopupOpen, setPopupSubmit] = useState(false);
     //установка нужного имени формы и попапа
     //popup картинки
     const [isImageOpen, setImageOpen] = useState(false);
 
     //установить карточку
-    const [card, getCard] = useState([]);
+    const [selectedCard, handleCardClick] = useState([]);
+
+    function closeAllPopups() {
+        setPopupAvatar(false);
+        setPopupProfile(false);
+        setPopupAdd(false);
+        setPopupSubmit(false);
+        setImageOpen(false)
+        handleCardClick([]);
+    }
 
     React.useEffect(() => {
         Promise.all([api.getProfileInfo(), api.getCards()])
@@ -42,21 +51,21 @@ const App = () => {
                 <Main
                     cards={cards}
                     profile={currentUser}
-                    isPopupSubmit={isPopupSubmit}
-                    onEditAvatar={setPopupAvatar}
-                    onEditProfile={setPopupProfile}
+                    isPopupSubmit={isSubmitPopupOpen}
+                    handleEditAvatarClick={setPopupAvatar}
+                    handleEditProfileClick={setPopupProfile}
                     onSubmitDelete={setPopupSubmit}
-                    onAddPlace={setPopupAdd}
+                    handleAddPlaceClick={setPopupAdd}
                     setImageOpen={setImageOpen}
-                    getCard={getCard}
+                    onCardClick={handleCardClick}
                 />
                 <Footer/>
             </div>
-            <AddCardPopup isOpen={isPopupAdd} setActive={setPopupAdd} name={"add"}/>
-            <EditProfilePopup isOpen={isPopupProfile} setActive={setPopupProfile} name={"profile"}/>
-            <EditAvatarPopup isOpen={isPopupAvatar} setActive={setPopupAvatar} name={"avatar"}/>
-            <SubmitPopup isOpen={isPopupSubmit} setActive={setPopupSubmit} name={"remove"}/>
-            <ImagePopup isOpen={isImageOpen} setActive={setImageOpen} card={card} getCard={getCard}/>
+            <AddCardPopup isOpen={isAddPlacePopupOpen} setActive={setPopupAdd} name={"add"} onClose={closeAllPopups}/>
+            <EditProfilePopup isOpen={isEditProfilePopupOpen} setActive={setPopupProfile} name={"profile"} onClose={closeAllPopups}/>
+            <EditAvatarPopup isOpen={isPopupAvatar} setActive={setPopupAvatar} name={"avatar"} onClose={closeAllPopups}/>
+            <SubmitPopup isOpen={isSubmitPopupOpen} setActive={setPopupSubmit} name={"remove"} onClose={closeAllPopups}/>
+            <ImagePopup isOpen={isImageOpen} setActive={setImageOpen} card={selectedCard} getCard={handleCardClick} onClose={closeAllPopups}/>
         </div>
     );
 }

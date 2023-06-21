@@ -6,12 +6,12 @@ const Main = ({
                   cards,
                   profile,
                   isPopupSubmit,
-                  onEditAvatar,
-                  onEditProfile,
-                  onAddPlace,
+                  handleEditAvatarClick,
+                  handleEditProfileClick,
+                  handleAddPlaceClick,
                   onSubmitDelete,
                   setImageOpen,
-                  getCard
+                  onCardClick
               }) => {
     return (
         <main className="main">
@@ -19,20 +19,20 @@ const Main = ({
                 <div className="profile__info-conteiner">
                     <img src={profile.avatar} alt="Жак Кусто" className="profile__avatar"></img>
                     <button className="profile__avatar-button" onClick={() => {
-                        onEditAvatar(true);
+                        handleEditAvatarClick(true);
                     }}>
                         <a href="#" className="profile__avatar-icon"></a>
                     </button>
                     <h1 className="profile__name">{profile.name}</h1>
                     <button type="button" className="profile__edit-button" onClick={() => {
-                        onEditProfile(true);
-                    }}></button>
+                        handleEditProfileClick(true);
+                    }}/>
                     <p className="profile__info">{profile.about}</p>
                 </div>
                 <button type="button" className="profile__add-button"
                         onClick={() => {
-                            onAddPlace(true);
-                        }}></button>
+                            handleAddPlaceClick(true);
+                        }}/>
             </section>
             <ul className="elements">
                 {cards.map((card) => (
@@ -43,7 +43,7 @@ const Main = ({
                         active={setImageOpen}
                         isOpen={isPopupSubmit}
                         setActive={onSubmitDelete}
-                        getCard={getCard}
+                        getCard={onCardClick}
                     />
                 ))}
             </ul>
