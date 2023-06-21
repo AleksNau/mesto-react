@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import Card from "./Card";
 
 
-
 const Main = ({
                   cards,
                   profile,
@@ -14,10 +13,6 @@ const Main = ({
                   setImageOpen,
                   getCard
               }) => {
-
-
-
-
     return (
         <main className="main">
             <section className="profile">
@@ -25,18 +20,18 @@ const Main = ({
                     <img src={profile.avatar} alt="Жак Кусто" className="profile__avatar"></img>
                     <button className="profile__avatar-button" onClick={() => {
                         onEditAvatar(true);
-                        }}>
-            <a href="#" className="profile__avatar-icon"></a>
-        </button>
+                    }}>
+                        <a href="#" className="profile__avatar-icon"></a>
+                    </button>
                     <h1 className="profile__name">{profile.name}</h1>
                     <button type="button" className="profile__edit-button" onClick={() => {
                         onEditProfile(true);
-                        }}></button>
+                    }}></button>
                     <p className="profile__info">{profile.about}</p>
                 </div>
-            <button type="button" className="profile__add-button"
-                    onClick={() => {
-                        onAddPlace(true);
+                <button type="button" className="profile__add-button"
+                        onClick={() => {
+                            onAddPlace(true);
                         }}></button>
             </section>
             <ul className="elements">
@@ -53,7 +48,7 @@ const Main = ({
                 ))}
             </ul>
 
-            
+
         </main>
     )
 }

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import '../index.css';
 import Footer from './Footer.js';
 import Header from './Header.js';
@@ -12,20 +12,18 @@ import ImagePopup from "./ImagePopup";
 
 const App = () => {
     const [cards, setCards] = useState([]);
-    const [currentUser, setCurrentUser] = React.useState({});
+    const [currentUser, setCurrentUser] = useState({});
     //обработчики попапов
     const [isPopupAvatar, setPopupAvatar] = useState(false);
     const [isPopupProfile, setPopupProfile] = useState(false);
     const [isPopupAdd, setPopupAdd] = useState(false);
     const [isPopupSubmit, setPopupSubmit] = useState(false);
     //установка нужного имени формы и попапа
-        //popup картинки
-        const [isImageOpen, setImageOpen] = useState(false);
-        const [selectedImage, handleCardClick] = useState([]);
-        const [selectedName, handleCardName] = useState([]);
+    //popup картинки
+    const [isImageOpen, setImageOpen] = useState(false);
 
-        //установить карточку
-        const [card, getCard] = useState([]);
+    //установить карточку
+    const [card, getCard] = useState([]);
 
     React.useEffect(() => {
         Promise.all([api.getProfileInfo(), api.getCards()])
@@ -50,17 +48,15 @@ const App = () => {
                     onSubmitDelete={setPopupSubmit}
                     onAddPlace={setPopupAdd}
                     setImageOpen={setImageOpen}
-                    handleCardClick={handleCardClick}
-                    handleCardName={handleCardName}
                     getCard={getCard}
-                    />
+                />
                 <Footer/>
             </div>
-            <AddCardPopup isOpen={isPopupAdd} setActive={setPopupAdd} name={"add"}></AddCardPopup>
+            <AddCardPopup isOpen={isPopupAdd} setActive={setPopupAdd} name={"add"}/>
             <EditProfilePopup isOpen={isPopupProfile} setActive={setPopupProfile} name={"profile"}/>
             <EditAvatarPopup isOpen={isPopupAvatar} setActive={setPopupAvatar} name={"avatar"}/>
             <SubmitPopup isOpen={isPopupSubmit} setActive={setPopupSubmit} name={"remove"}/>
-            <ImagePopup isOpen={isImageOpen} setActive={setImageOpen} card={card}/>
+            <ImagePopup isOpen={isImageOpen} setActive={setImageOpen} card={card} getCard={getCard}/>
         </div>
     );
 }

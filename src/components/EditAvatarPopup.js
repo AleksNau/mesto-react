@@ -14,7 +14,7 @@ export default function EditAvatarPopup({isOpen, setActive, name}) {
                     <label>
                         <input name="link" id="avatar-link" type="url"
                                className="popup__input popup__input_type_image-link" placeholder="Ссылка на аватар"
-                               required></input>
+                               required/>
                         <span id="avatar-link-error" className="popup__error"></span>
                     </label>
                 </>
