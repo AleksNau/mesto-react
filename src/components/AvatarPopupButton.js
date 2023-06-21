@@ -1,10 +1,9 @@
-import React,{useState} from 'react';
+import React, {useState} from 'react';
 
 
-
-const AvatarPopupButton = ({handleEditAvatarClick,handlePopupName}) => {
+const AvatarPopupButton = ({handleEditAvatarClick, handlePopupName}) => {
     return (
-        <button className="profile__avatar-button" onClick={()=> {
+        <button className="profile__avatar-button" onClick={() => {
             handleEditAvatarClick(true);
             handlePopupName("popup_avatar")
         }}>

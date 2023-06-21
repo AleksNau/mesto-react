@@ -1,10 +1,21 @@
 import React from 'react';
 
 
-export default function Card({_id,src,name,likes,active,activeImage,setName,isOpen, setActive,handlePopupName}) {
+export default function Card({
+                                 _id,
+                                 src,
+                                 name,
+                                 likes,
+                                 active,
+                                 activeImage,
+                                 setName,
+                                 isOpen,
+                                 setActive,
+                                 handlePopupName
+                             }) {
     return (
         <li className="elements__item">
-            <img src={src} alt={name} className="elements__image" onClick={()=> {
+            <img src={src} alt={name} className="elements__image" onClick={() => {
                 activeImage(src);
                 active(true);
                 setName(name)
@@ -16,7 +27,7 @@ export default function Card({_id,src,name,likes,active,activeImage,setName,isOp
                     <p className="elements__like-counter">{likes}</p>
                 </div>
                 <button type="button" className="elements__delete" onClick={() => {
-setActive(!isOpen);
+                    setActive(!isOpen);
                     handlePopupName("remove")
                 }}></button>
             </div>
