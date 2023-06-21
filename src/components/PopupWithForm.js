@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function PopupWithForm({isOpen, children, name,setActive}) {
+export default function PopupWithForm({isOpen, children, name,setActive,buttonValue}) {
     return (
         <div className={isOpen ? `popup popup_${name} popup_opened ` :`popup`} onClick={() => {setActive(false)}}>
             <div className="popup__conteiner" onClick={event => event.stopPropagation()}>
@@ -10,7 +10,7 @@ export default function PopupWithForm({isOpen, children, name,setActive}) {
             <fieldset className="popup__fieldset">
                 {children}
                 <button type="submit" className="popup__submit" form="create_card-form"
-                        value="Сохранить изменения">Создать</button>
+                        value="Сохранить изменения">{buttonValue}</button>
             </fieldset>
         </form>
             </div>

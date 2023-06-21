@@ -7,6 +7,7 @@ export default function EditAvatarPopup({isOpen,setActive,name}) {
         isOpen={isOpen}
         setActive={setActive}
         name={name}
+        buttonValue={"Сохранить"}
         children={
             <>
             <legend className="popup__title">Обновить аватар</legend>

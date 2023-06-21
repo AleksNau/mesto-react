@@ -7,6 +7,7 @@ export default function EditProfilePopup({isOpen,setActive,name}) {
         isOpen={isOpen}
         setActive={setActive}
         name={name}
+        buttonValue={"Сохранить"}
         children={
             <>
             <legend className="popup__title">Редактировать профиль</legend>

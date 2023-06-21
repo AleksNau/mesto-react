@@ -7,6 +7,7 @@ export default function AddCardPopup({isOpen,setActive,name}) {
         isOpen={isOpen}
         setActive={setActive}
         name={name}
+        buttonValue={"Создать"}
         children={
             <>
             <legend className="popup__title">Новое место</legend>

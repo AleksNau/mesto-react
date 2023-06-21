@@ -7,6 +7,7 @@ export default function SubmitPopup({isOpen,setActive,name}) {
         isOpen={isOpen}
         setActive={setActive}
         name={name}
+        buttonValue={"Да"}
         children={
             <>
                 <legend className="popup__title popup__title_remove">Вы уверены?</legend>
