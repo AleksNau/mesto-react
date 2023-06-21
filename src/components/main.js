@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
-import PopupWithForm from "./PopupWithForm";
 import Card from "./Card";
-import ImagePopup from "./ImagePopup";
+
 
 
 const Main = ({
@@ -11,13 +10,13 @@ const Main = ({
                   onEditAvatar,
                   onEditProfile,
                   onAddPlace,
-                  onSubmitDelete
+                  onSubmitDelete,
+                  setImageOpen,
+                  handleCardClick,
+                  handleCardName
               }) => {
 
-    //popup картинки
-    const [isImageOpen, setImageOpen] = useState(false);
-    const [selectedImage, handleCardClick] = useState([]);
-    const [selectedName, handleCardName] = useState([]);
+
 
 
     return (
@@ -57,8 +56,7 @@ const Main = ({
                 ))}
             </ul>
 
-            <PopupWithForm/>
-            <ImagePopup isOpen={isImageOpen} setActive={setImageOpen} image={selectedImage} name={selectedName}/>
+            
         </main>
     )
 }
