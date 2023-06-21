@@ -1,7 +1,4 @@
 import React, {useState} from 'react';
-import ProfilePopupButton from "./ProfilePopupButton.js";
-import AvatarPopupButton from "./AvatarPopupButton";
-import AddPopupButton from "./AddPopupButton";
 import PopupWithForm from "./PopupWithForm";
 import Card from "./Card";
 import ImagePopup from "./ImagePopup";
@@ -29,12 +26,24 @@ const Main = ({
             <section className="profile">
                 <div className="profile__info-conteiner">
                     <img src={profile.avatar} alt="Жак Кусто" className="profile__avatar"></img>
-                    <AvatarPopupButton handleEditAvatarClick={onEditAvatar} handlePopupName={handlePopupName}/>
+                    <button className="profile__avatar-button" onClick={() => {
+                        onEditAvatar(true);
+                        handlePopupName("popup_avatar")
+                        }}>
+            <a href="#" className="profile__avatar-icon"></a>
+        </button>
                     <h1 className="profile__name">{profile.name}</h1>
-                    <ProfilePopupButton handleEditProfileClick={onEditProfile} handlePopupName={handlePopupName}/>
+                    <button type="button" className="profile__edit-button" onClick={() => {
+                        onEditProfile(true);
+                        handlePopupName("profile")
+                        }}></button>
                     <p className="profile__info">{profile.about}</p>
                 </div>
-                <AddPopupButton handleAddPlaceClick={onAddPlace} handlePopupName={handlePopupName}/>
+            <button type="button" className="profile__add-button"
+                    onClick={() => {
+                        onAddPlace(true);
+                        handlePopupName("add")
+                        }}></button>
             </section>
             <ul className="elements">
                 {cards.map((card) => (
