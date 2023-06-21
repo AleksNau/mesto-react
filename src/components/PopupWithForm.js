@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function PopupWithForm({isOpen, children, name, buttonValue,onClose}) {
+export default function PopupWithForm({isOpen, children, name, buttonValue, onClose}) {
     return (
         <div className={isOpen ? `popup popup_${name} popup_opened ` : `popup`} onClick={() => {
             onClose();

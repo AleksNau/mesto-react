@@ -58,8 +58,8 @@ const App = () => {
             </div>
             <AddCardPopup isOpen={isAddPlacePopupOpen} name={"add"} onClose={closeAllPopups}/>
             <EditProfilePopup isOpen={isEditProfilePopupOpen} name={"profile"} onClose={closeAllPopups}/>
-            <EditAvatarPopup isOpen={isPopupAvatar}  name={"avatar"} onClose={closeAllPopups}/>
-            <SubmitPopup isOpen={isSubmitPopupOpen}  name={"remove"} onClose={closeAllPopups}/>
+            <EditAvatarPopup isOpen={isPopupAvatar} name={"avatar"} onClose={closeAllPopups}/>
+            <SubmitPopup isOpen={isSubmitPopupOpen} name={"remove"} onClose={closeAllPopups}/>
             <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
         </div>
     );

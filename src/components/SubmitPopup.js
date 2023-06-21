@@ -1,7 +1,7 @@
 import React from 'react';
 import PopupWithForm from './PopupWithForm';
 
-export default function SubmitPopup({isOpen, name,onClose}) {
+export default function SubmitPopup({isOpen, name, onClose}) {
     return (
         <PopupWithForm
             isOpen={isOpen}

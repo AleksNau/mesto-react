@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ImagePopup({ card,onClose}) {
+export default function ImagePopup({card, onClose}) {
 
     return (
         <div className={card.link ? "popup popup_image-zoom popup_opened" : "popup"} onClick={() => {
