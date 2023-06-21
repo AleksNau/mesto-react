@@ -13,7 +13,8 @@ const Main = ({
                   onSubmitDelete,
                   setImageOpen,
                   handleCardClick,
-                  handleCardName
+                  handleCardName,
+                  getCard
               }) => {
 
 
@@ -43,6 +44,7 @@ const Main = ({
             <ul className="elements">
                 {cards.map((card) => (
                     <Card
+                    cardForPop={card}
                         key={card._id}
                         src={card.link}
                         name={card.name}
@@ -52,6 +54,7 @@ const Main = ({
                         setName={handleCardName}
                         isOpen={isPopupSubmit}
                         setActive={onSubmitDelete}
+                        getCard={getCard}
                     />
                 ))}
             </ul>

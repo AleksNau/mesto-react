@@ -10,14 +10,18 @@ export default function Card({
                                  activeImage,
                                  setName,
                                  isOpen,
-                                 setActive
+                                 setActive,
+                                 cardForPop,
+                                 getCard
                              }) {
     return (
         <li className="elements__item">
             <img src={src} alt={name} className="elements__image" onClick={() => {
                 activeImage(src);
                 active(true);
-                setName(name)
+                console.log(cardForPop);
+                getCard(cardForPop);
+                setName(name);
             }}></img>
             <div className="elements__info">
                 <p className="elements__text">{name}</p>

@@ -24,6 +24,9 @@ const App = () => {
         const [selectedImage, handleCardClick] = useState([]);
         const [selectedName, handleCardName] = useState([]);
 
+        //установить карточку
+        const [card, getCard] = useState([]);
+
     React.useEffect(() => {
         Promise.all([api.getProfileInfo(), api.getCards()])
             .then(([info, cards]) => {
@@ -49,6 +52,7 @@ const App = () => {
                     setImageOpen={setImageOpen}
                     handleCardClick={handleCardClick}
                     handleCardName={handleCardName}
+                    getCard={getCard}
                     />
                 <Footer/>
             </div>
