@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import '../index.css';
-import Footer from './footer.js';
-import Header from './header.js';
-import Main from './main.js';
+import Footer from './Footer.js';
+import Header from './Header.js';
+import Main from './Main.js';
 import api from "../utils/Api";
 import AddCardPopup from './AddCardPopup.js';
 import EditProfilePopup from './EditProfilePopup.js';
@@ -13,7 +13,7 @@ import ImagePopup from "./ImagePopup";
 const App = () => {
     const [cards, setCards] = useState([]);
     const [currentUser, setCurrentUser] = React.useState({});
-    //открытие универсального попапа
+    //обработчики попапов
     const [isPopupAvatar, setPopupAvatar] = useState(false);
     const [isPopupProfile, setPopupProfile] = useState(false);
     const [isPopupAdd, setPopupAdd] = useState(false);
