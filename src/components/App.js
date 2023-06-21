@@ -30,7 +30,6 @@ const App = () => {
         setPopupProfile(false);
         setPopupAdd(false);
         setPopupSubmit(false);
-        setImageOpen(false)
         handleCardClick([]);
     }
 
@@ -56,7 +55,6 @@ const App = () => {
                     handleEditProfileClick={setPopupProfile}
                     onSubmitDelete={setPopupSubmit}
                     handleAddPlaceClick={setPopupAdd}
-                    setImageOpen={setImageOpen}
                     onCardClick={handleCardClick}
                 />
                 <Footer/>
@@ -65,7 +63,7 @@ const App = () => {
             <EditProfilePopup isOpen={isEditProfilePopupOpen} setActive={setPopupProfile} name={"profile"} onClose={closeAllPopups}/>
             <EditAvatarPopup isOpen={isPopupAvatar} setActive={setPopupAvatar} name={"avatar"} onClose={closeAllPopups}/>
             <SubmitPopup isOpen={isSubmitPopupOpen} setActive={setPopupSubmit} name={"remove"} onClose={closeAllPopups}/>
-            <ImagePopup isOpen={isImageOpen} setActive={setImageOpen} card={selectedCard} getCard={handleCardClick} onClose={closeAllPopups}/>
+            <ImagePopup isOpen={isImageOpen} card={selectedCard} getCard={handleCardClick} onClose={closeAllPopups}/>
         </div>
     );
 }

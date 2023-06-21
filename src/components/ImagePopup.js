@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function ImagePopup({isOpen, setActive, card,getCard,onClose}) {
+export default function ImagePopup({ card,onClose}) {
 
     return (
-        <div className={isOpen ? "popup popup_opened" : "popup"} onClick={() => {
+        <div className={card.link ? "popup popup_opened" : "popup"} onClick={() => {
             onClose();
         }}>
             <div className="popup__conteiner-zoom" onClick={event => event.stopPropagation()}>

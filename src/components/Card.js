@@ -3,7 +3,6 @@ import React from 'react';
 
 export default function Card({
                                  likes,
-                                 active,
                                  isOpen,
                                  setActive,
                                  cardForPop,
@@ -12,7 +11,6 @@ export default function Card({
     return (
         <li className="elements__item">
             <img src={cardForPop.link} alt={cardForPop.name} className="elements__image" onClick={() => {
-                active(true);
                 getCard(cardForPop);
             }}/>
             <div className="elements__info">

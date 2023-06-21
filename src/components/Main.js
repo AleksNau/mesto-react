@@ -10,7 +10,6 @@ const Main = ({
                   handleEditProfileClick,
                   handleAddPlaceClick,
                   onSubmitDelete,
-                  setImageOpen,
                   onCardClick
               }) => {
     return (
@@ -40,7 +39,6 @@ const Main = ({
                         cardForPop={card}
                         key={card._id}
                         likes={card.likes.length}
-                        active={setImageOpen}
                         isOpen={isPopupSubmit}
                         setActive={onSubmitDelete}
                         getCard={onCardClick}
