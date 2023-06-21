@@ -60,7 +60,7 @@ const App = () => {
             <EditProfilePopup isOpen={isPopupProfile} setActive={setPopupProfile} name={"profile"}/>
             <EditAvatarPopup isOpen={isPopupAvatar} setActive={setPopupAvatar} name={"avatar"}/>
             <SubmitPopup isOpen={isPopupSubmit} setActive={setPopupSubmit} name={"remove"}/>
-            <ImagePopup isOpen={isImageOpen} setActive={setImageOpen} image={card.link} name={selectedName}/>
+            <ImagePopup isOpen={isImageOpen} setActive={setImageOpen} card={card}/>
         </div>
     );
 }

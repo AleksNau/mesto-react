@@ -2,13 +2,8 @@ import React from 'react';
 
 
 export default function Card({
-                                 _id,
-                                 src,
-                                 name,
                                  likes,
                                  active,
-                                 activeImage,
-                                 setName,
                                  isOpen,
                                  setActive,
                                  cardForPop,
@@ -16,15 +11,12 @@ export default function Card({
                              }) {
     return (
         <li className="elements__item">
-            <img src={src} alt={name} className="elements__image" onClick={() => {
-                activeImage(src);
+            <img src={cardForPop.link} alt={cardForPop.name} className="elements__image" onClick={() => {
                 active(true);
-                console.log(cardForPop);
                 getCard(cardForPop);
-                setName(name);
             }}></img>
             <div className="elements__info">
-                <p className="elements__text">{name}</p>
+                <p className="elements__text">{cardForPop.name}</p>
                 <div className="elements__like-container">
                     <button type="button" className="elements__like"></button>
                     <p className="elements__like-counter">{likes}</p>

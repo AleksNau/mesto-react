@@ -12,8 +12,6 @@ const Main = ({
                   onAddPlace,
                   onSubmitDelete,
                   setImageOpen,
-                  handleCardClick,
-                  handleCardName,
                   getCard
               }) => {
 
@@ -44,14 +42,10 @@ const Main = ({
             <ul className="elements">
                 {cards.map((card) => (
                     <Card
-                    cardForPop={card}
+                        cardForPop={card}
                         key={card._id}
-                        src={card.link}
-                        name={card.name}
                         likes={card.likes.length}
-                        activeImage={handleCardClick}
                         active={setImageOpen}
-                        setName={handleCardName}
                         isOpen={isPopupSubmit}
                         setActive={onSubmitDelete}
                         getCard={getCard}
