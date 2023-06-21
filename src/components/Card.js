@@ -10,8 +10,7 @@ export default function Card({
                                  activeImage,
                                  setName,
                                  isOpen,
-                                 setActive,
-                                 handlePopupName
+                                 setActive
                              }) {
     return (
         <li className="elements__item">
@@ -28,7 +27,6 @@ export default function Card({
                 </div>
                 <button type="button" className="elements__delete" onClick={() => {
                     setActive(!isOpen);
-                    handlePopupName("remove")
                 }}></button>
             </div>
         </li>
