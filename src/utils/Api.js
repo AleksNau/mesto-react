@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+
  class Api {
     constructor(url, headers) {
         this._url = url;
@@ -94,8 +94,6 @@ import React,{useEffect} from 'react';
     };
 
 }
-
-let userId = null;
 
 const api = new Api("https://mesto.nomoreparties.co/v1/cohort-66",
     {
