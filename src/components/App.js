@@ -18,9 +18,6 @@ const App = () => {
     const [isEditProfilePopupOpen, setPopupProfile] = useState(false);
     const [isAddPlacePopupOpen, setPopupAdd] = useState(false);
     const [isSubmitPopupOpen, setPopupSubmit] = useState(false);
-    //установка нужного имени формы и попапа
-    //popup картинки
-    const [isImageOpen, setImageOpen] = useState(false);
 
     //установить карточку
     const [selectedCard, handleCardClick] = useState([]);
@@ -59,11 +56,11 @@ const App = () => {
                 />
                 <Footer/>
             </div>
-            <AddCardPopup isOpen={isAddPlacePopupOpen} setActive={setPopupAdd} name={"add"} onClose={closeAllPopups}/>
-            <EditProfilePopup isOpen={isEditProfilePopupOpen} setActive={setPopupProfile} name={"profile"} onClose={closeAllPopups}/>
-            <EditAvatarPopup isOpen={isPopupAvatar} setActive={setPopupAvatar} name={"avatar"} onClose={closeAllPopups}/>
-            <SubmitPopup isOpen={isSubmitPopupOpen} setActive={setPopupSubmit} name={"remove"} onClose={closeAllPopups}/>
-            <ImagePopup isOpen={isImageOpen} card={selectedCard} getCard={handleCardClick} onClose={closeAllPopups}/>
+            <AddCardPopup isOpen={isAddPlacePopupOpen} name={"add"} onClose={closeAllPopups}/>
+            <EditProfilePopup isOpen={isEditProfilePopupOpen} name={"profile"} onClose={closeAllPopups}/>
+            <EditAvatarPopup isOpen={isPopupAvatar}  name={"avatar"} onClose={closeAllPopups}/>
+            <SubmitPopup isOpen={isSubmitPopupOpen}  name={"remove"} onClose={closeAllPopups}/>
+            <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
         </div>
     );
 }

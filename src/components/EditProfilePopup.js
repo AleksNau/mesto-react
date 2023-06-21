@@ -1,11 +1,10 @@
 import React from 'react';
 import PopupWithForm from './PopupWithForm';
 
-export default function EditProfilePopup({isOpen, setActive, name,onClose}) {
+export default function EditProfilePopup({isOpen, name,onClose}) {
     return (
         <PopupWithForm
             isOpen={isOpen}
-            setActive={setActive}
             name={name}
             buttonValue={"Сохранить"}
             onClose={onClose}

@@ -1,11 +1,10 @@
 import React from 'react';
 import PopupWithForm from './PopupWithForm';
 
-export default function EditAvatarPopup({isOpen, setActive, name,onClose}) {
+export default function EditAvatarPopup({isOpen, name,onClose}) {
     return (
         <PopupWithForm
             isOpen={isOpen}
-            setActive={setActive}
             name={name}
             buttonValue={"Сохранить"}
             onClose={onClose}

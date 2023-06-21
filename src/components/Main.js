@@ -16,11 +16,11 @@ const Main = ({
         <main className="main">
             <section className="profile">
                 <div className="profile__info-conteiner">
-                    <img src={profile.avatar} alt="Жак Кусто" className="profile__avatar"></img>
+                    <img src={profile.avatar} alt="Жак Кусто" className="profile__avatar"/>
                     <button className="profile__avatar-button" onClick={() => {
                         handleEditAvatarClick(true);
                     }}>
-                        <a href="#" className="profile__avatar-icon"></a>
+                        <a href="#" className="profile__avatar-icon"/>
                     </button>
                     <h1 className="profile__name">{profile.name}</h1>
                     <button type="button" className="profile__edit-button" onClick={() => {
