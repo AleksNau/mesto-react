@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,Provider} from 'react';
 import '../index.css';
 import Footer from './Footer.js';
 import Header from './Header.js';
@@ -9,6 +9,7 @@ import EditProfilePopup from './EditProfilePopup.js';
 import SubmitPopup from './SubmitPopup.js';
 import EditAvatarPopup from './EditAvatarPopup.js';
 import ImagePopup from "./ImagePopup";
+import myContext from "../contexts/CurrentUserContext";
 
 const App = () => {
     const [cards, setCards] = useState([]);
@@ -18,6 +19,8 @@ const App = () => {
     const [isEditProfilePopupOpen, setPopupProfile] = useState(false);
     const [isAddPlacePopupOpen, setPopupAdd] = useState(false);
     const [isSubmitPopupOpen, setPopupSubmit] = useState(false);
+
+    //пр11 начало
 
     //установить карточку
     const [selectedCard, handleCardClick] = useState([]);
@@ -41,6 +44,7 @@ const App = () => {
 
 
     return (
+        <myContext.Provider value={currentUser}>
         <div className="root">
             <div className="page">
                 <Header/>
@@ -62,6 +66,7 @@ const App = () => {
             <SubmitPopup isOpen={isSubmitPopupOpen} name={"remove"} onClose={closeAllPopups}/>
             <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
         </div>
+        </myContext.Provider>
     );
 }
 
