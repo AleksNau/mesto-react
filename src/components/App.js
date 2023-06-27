@@ -52,7 +52,6 @@ const App = () => {
                 <Header/>
                 <Main
                     cards={cards}
-                    profile={currentUser}
                     isPopupSubmit={isSubmitPopupOpen}
                     handleEditAvatarClick={setPopupAvatar}
                     handleEditProfileClick={setPopupProfile}

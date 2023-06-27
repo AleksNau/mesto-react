@@ -5,7 +5,6 @@ import Card from "./Card";
 
 const Main= ({
                   cards,
-                  profile,
                   isPopupSubmit,
                   handleEditAvatarClick,
                   handleEditProfileClick,
