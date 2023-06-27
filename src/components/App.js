@@ -9,7 +9,7 @@ import EditProfilePopup from './EditProfilePopup.js';
 import SubmitPopup from './SubmitPopup.js';
 import EditAvatarPopup from './EditAvatarPopup.js';
 import ImagePopup from "./ImagePopup";
-import myContext from "../contexts/CurrentUserContext";
+import {CurrentUserProvider} from "./contexts/CurrentUserContext.js";
 
 const App = () => {
     const [cards, setCards] = useState([]);
@@ -44,9 +44,11 @@ const App = () => {
 
 
     return (
-        <myContext.Provider value={currentUser}>
+        
         <div className="root">
+            <CurrentUserProvider value={currentUser}>
             <div className="page">
+            
                 <Header/>
                 <Main
                     cards={cards}
@@ -65,8 +67,9 @@ const App = () => {
             <EditAvatarPopup isOpen={isPopupAvatar} name={"avatar"} onClose={closeAllPopups}/>
             <SubmitPopup isOpen={isSubmitPopupOpen} name={"remove"} onClose={closeAllPopups}/>
             <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
+            </CurrentUserProvider>
         </div>
-        </myContext.Provider>
+        
     );
 }
 
