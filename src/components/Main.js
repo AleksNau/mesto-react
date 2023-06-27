@@ -11,7 +11,8 @@ const Main= ({
                   handleAddPlaceClick,
                   onSubmitDelete,
                   onCardClick,
-    onCardLike
+    onCardLike,
+                 onCardDelete
               }) => {
                 const user = React.useContext(myContext);
     return (
@@ -45,6 +46,7 @@ const Main= ({
                         setActive={onSubmitDelete}
                         getCard={onCardClick}
                         onCardLike={onCardLike}
+                        handleDeleteClick={onCardDelete}
                     />
                 ))}
             </ul>

@@ -43,6 +43,21 @@ const App = () => {
         });
     }
 
+    function handleCardDelete(card) {
+        api.deleteCard(card._id)
+            .then(() => {
+                card.deleteCard();
+                //removePopupClass.close();
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally(() => {
+               // removePopupClass.renderLoading();
+            });
+        }
+
+
     React.useEffect(() => {
         Promise.all([api.getProfileInfo(), api.getCards()])
             .then(([info, cards]) => {
@@ -69,6 +84,7 @@ const App = () => {
                     handleAddPlaceClick={setPopupAdd}
                     onCardClick={handleCardClick}
                     onCardLike={handleCardLike}
+                    onCardDelete={handleCardDelete}
                 />
                 <Footer/>
             </div>
