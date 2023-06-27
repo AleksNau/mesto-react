@@ -1,4 +1,4 @@
-import React, {useState,Provider} from 'react';
+import React, {useState} from 'react';
 import '../index.css';
 import Footer from './Footer.js';
 import Header from './Header.js';
@@ -9,7 +9,7 @@ import EditProfilePopup from './EditProfilePopup.js';
 import SubmitPopup from './SubmitPopup.js';
 import EditAvatarPopup from './EditAvatarPopup.js';
 import ImagePopup from "./ImagePopup";
-import {CurrentUserProvider} from "./contexts/CurrentUserContext.js";
+import myContext from "../contexts/CurrentUserContext";
 
 const App = () => {
     const [cards, setCards] = useState([]);
@@ -46,7 +46,7 @@ const App = () => {
     return (
         
         <div className="root">
-            <CurrentUserProvider value={currentUser}>
+            <myContext.Provider value={currentUser}>
             <div className="page">
             
                 <Header/>
@@ -67,7 +67,7 @@ const App = () => {
             <EditAvatarPopup isOpen={isPopupAvatar} name={"avatar"} onClose={closeAllPopups}/>
             <SubmitPopup isOpen={isSubmitPopupOpen} name={"remove"} onClose={closeAllPopups}/>
             <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
-            </CurrentUserProvider>
+            </myContext.Provider>
         </div>
         
     );
