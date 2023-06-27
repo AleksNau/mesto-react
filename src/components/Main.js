@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
+import myContext from '../contexts/CurrentUserContext';
 import Card from "./Card";
 
 
-const Main = ({
+const Main= ({
                   cards,
                   profile,
                   isPopupSubmit,
@@ -12,21 +13,22 @@ const Main = ({
                   onSubmitDelete,
                   onCardClick
               }) => {
+                const user = React.useContext(myContext);
     return (
         <main className="main">
             <section className="profile">
                 <div className="profile__info-conteiner">
-                    <img src={profile.avatar} alt="Жак Кусто" className="profile__avatar"/>
+                    <img src={user.avatar} alt="Жак Кусто" className="profile__avatar"/>
                     <button className="profile__avatar-button" onClick={() => {
                         handleEditAvatarClick(true);
                     }}>
                         <a href="#" className="profile__avatar-icon"/>
                     </button>
-                    <h1 className="profile__name">{profile.name}</h1>
+                    <h1 className="profile__name">{user.name}</h1>
                     <button type="button" className="profile__edit-button" onClick={() => {
                         handleEditProfileClick(true);
                     }}/>
-                    <p className="profile__info">{profile.about}</p>
+                    <p className="profile__info">{user.about}</p>
                 </div>
                 <button type="button" className="profile__add-button"
                         onClick={() => {
