@@ -10,7 +10,8 @@ const Main= ({
                   handleEditProfileClick,
                   handleAddPlaceClick,
                   onSubmitDelete,
-                  onCardClick
+                  onCardClick,
+    onCardLike
               }) => {
                 const user = React.useContext(myContext);
     return (
@@ -43,6 +44,7 @@ const Main= ({
                         isOpen={isPopupSubmit}
                         setActive={onSubmitDelete}
                         getCard={onCardClick}
+                        onCardLike={onCardLike}
                     />
                 ))}
             </ul>
