@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function PopupWithForm({isOpen, children, name, buttonValue, onClose}) {
+export default function PopupWithForm({isOpen, children, name, buttonValue, onClose, onSubmit}) {
     return (
         <div className={isOpen ? `popup popup_${name} popup_opened ` : `popup`} onClick={() => {
             onClose();
@@ -9,12 +9,12 @@ export default function PopupWithForm({isOpen, children, name, buttonValue, onCl
                 <button type="button" className="popup__close-button" onClick={() => {
                     onClose();
                 }}/>
-                <form name="create_card-form" className={`popup__form popup__form_${name}`} id="create_card-form"
+                <form onSubmit={(event)=> {onSubmit(event)}} name={`${name}-form`} className={`popup__form popup__form_${name}`} id={`${name}-form`}
                       method="post"
                       noValidate>
                     <fieldset className="popup__fieldset">
                         {children}
-                        <button type="submit" className="popup__submit" form="create_card-form"
+                        <button type="submit" className="popup__submit" form={`${name}-form`}
                                 value="Сохранить изменения">{buttonValue}</button>
                     </fieldset>
                 </form>

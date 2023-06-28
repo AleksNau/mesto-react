@@ -23,12 +23,12 @@ export default function EditProfilePopup({onUpdateUser,isOpen, popupName, onClos
         setProfileDescription(e.target.value);
       }
 
-      function handleSubmit(e) {
+ function handleSubmit(e) {
   e.preventDefault();
   // Передаём значения управляемых компонентов во внешний обработчик
   onUpdateUser({
-    name:profileName,
-    about: profileDescription,
+    Name:profileName,
+    Info: profileDescription,
   });
 }
 
@@ -43,13 +43,25 @@ export default function EditProfilePopup({onUpdateUser,isOpen, popupName, onClos
                 <>
                     <legend className="popup__title">Редактировать профиль</legend>
                     <label>
-                        <input name="Name" id="name" type="text" className="popup__input popup__input_type_name"
-                               minLength="2" maxLength="40" required/>
+                        <input name="Name" 
+                        id="name" type="text" 
+                        className="popup__input popup__input_type_name"
+                        minLength="2" 
+                        maxLength="40"
+                        value={profileName}
+                        onChange={(e)=>handleNameChange(e)} 
+                        required/>
                         <span id="name-error" className="popup__error">&nbsp;</span>
                     </label>
                     <label>
-                        <input name="Info" id="info" type="text" className="popup__input popup__input_type_info"
-                               minLength="2" maxLength="200" required/>
+                        <input name="Info" 
+                        id="info" type="text" 
+                        className="popup__input popup__input_type_info"
+                        minLength="2" 
+                        maxLength="200"
+                        value={profileDescription}
+                        onChange={(e)=>handleDescriptionChange(e)} 
+                        required/>
                         <span id="info-error" className="popup__error">&nbsp;</span>
                     </label>
                 </>
