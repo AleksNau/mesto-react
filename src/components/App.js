@@ -66,6 +66,16 @@ const App = () => {
             .catch((err) => console.log(err));
     }
 
+    function handleUpdateAvatar(data) {
+        api
+            .sendAvatar(data.avatar)
+            .then((newAvatar) => {
+                setCurrentUser(newAvatar);
+                closeAllPopups();
+            })
+            .catch((err) => console.log(err));
+    }
+
 
     React.useEffect(() => {
         Promise.all([api.getProfileInfo(), api.getCards()])
@@ -103,7 +113,10 @@ const App = () => {
                     popupName={"profile"}
                     onClose={closeAllPopups}
                     onUpdateUser={handleUpdateUser}/>
-                <EditAvatarPopup isOpen={isPopupAvatar} name={"avatar"} onClose={closeAllPopups}/>
+                <EditAvatarPopup isOpen={isPopupAvatar}
+                                 name={"avatar"}
+                                 onClose={closeAllPopups}
+                                 onUpdateAvatar={handleUpdateAvatar}/>
                 <SubmitPopup isOpen={isSubmitPopupOpen} name={"remove"} onClose={closeAllPopups}/>
                 <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
             </myContext.Provider>
