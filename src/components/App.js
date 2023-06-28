@@ -98,7 +98,11 @@ const App = () => {
                 <Footer/>
             </div>
             <AddCardPopup isOpen={isAddPlacePopupOpen} name={"add"} onClose={closeAllPopups}/>
-            <EditProfilePopup isOpen={isEditProfilePopupOpen} popupName={"profile"} onClose={closeAllPopups}/>
+            <EditProfilePopup 
+            isOpen={isEditProfilePopupOpen} 
+            popupName={"profile"} 
+            onClose={closeAllPopups}
+            onUpdateUser={handleUpdateUser}/>
             <EditAvatarPopup isOpen={isPopupAvatar} name={"avatar"} onClose={closeAllPopups}/>
             <SubmitPopup isOpen={isSubmitPopupOpen} name={"remove"} onClose={closeAllPopups}/>
             <ImagePopup card={selectedCard} onClose={closeAllPopups}/>

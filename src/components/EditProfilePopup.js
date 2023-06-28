@@ -2,7 +2,7 @@ import React from 'react';
 import PopupWithForm from './PopupWithForm';
 import myContext from '../contexts/CurrentUserContext';
 
-export default function EditProfilePopup({isOpen, popupName, onClose}) {
+export default function EditProfilePopup({onUpdateUser,isOpen, popupName, onClose}) {
     const currentUser = React.useContext(myContext);
     const { name, about } = currentUser;
     const [profileName, setProfileName] = React.useState("");
@@ -26,7 +26,7 @@ export default function EditProfilePopup({isOpen, popupName, onClose}) {
       function handleSubmit(e) {
   e.preventDefault();
   // Передаём значения управляемых компонентов во внешний обработчик
-  props.onUpdateUser({
+  onUpdateUser({
     name:profileName,
     about: profileDescription,
   });
