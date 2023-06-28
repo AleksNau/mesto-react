@@ -2,35 +2,36 @@ import React from 'react';
 import PopupWithForm from './PopupWithForm';
 import myContext from '../contexts/CurrentUserContext';
 
-export default function EditProfilePopup({onUpdateUser,isOpen, popupName, onClose}) {
+export default function EditProfilePopup({onUpdateUser, isOpen, popupName, onClose}) {
     const currentUser = React.useContext(myContext);
-    const { name, about } = currentUser;
+    const {name, about} = currentUser;
     const [profileName, setProfileName] = React.useState("");
-    const [profileDescription , setProfileDescription] = React.useState("");
+    const [profileDescription, setProfileDescription] = React.useState("");
 
     React.useEffect(() => {
         if (isOpen) {
-          setProfileName(name);
-          setProfileDescription(about);
+            setProfileName(name);
+            setProfileDescription(about);
         }
-      }, [isOpen, currentUser]);
+    }, [isOpen, currentUser]);
 
     function handleNameChange(e) {
         setProfileName(e.target.value);
-      }
-      // input change
-      function handleDescriptionChange(e) {
-        setProfileDescription(e.target.value);
-      }
+    }
 
- function handleSubmit(e) {
-  e.preventDefault();
-  // Передаём значения управляемых компонентов во внешний обработчик
-  onUpdateUser({
-    Name:profileName,
-    Info: profileDescription,
-  });
-}
+    // input change
+    function handleDescriptionChange(e) {
+        setProfileDescription(e.target.value);
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        // Передаём значения управляемых компонентов во внешний обработчик
+        onUpdateUser({
+            Name: profileName,
+            Info: profileDescription,
+        });
+    }
 
     return (
         <PopupWithForm
@@ -43,25 +44,25 @@ export default function EditProfilePopup({onUpdateUser,isOpen, popupName, onClos
                 <>
                     <legend className="popup__title">Редактировать профиль</legend>
                     <label>
-                        <input name="Name" 
-                        id="name" type="text" 
-                        className="popup__input popup__input_type_name"
-                        minLength="2" 
-                        maxLength="40"
-                        value={profileName}
-                        onChange={(e)=>handleNameChange(e)} 
-                        required/>
+                        <input name="Name"
+                               id="name" type="text"
+                               className="popup__input popup__input_type_name"
+                               minLength="2"
+                               maxLength="40"
+                               value={profileName}
+                               onChange={(e) => handleNameChange(e)}
+                               required/>
                         <span id="name-error" className="popup__error">&nbsp;</span>
                     </label>
                     <label>
-                        <input name="Info" 
-                        id="info" type="text" 
-                        className="popup__input popup__input_type_info"
-                        minLength="2" 
-                        maxLength="200"
-                        value={profileDescription}
-                        onChange={(e)=>handleDescriptionChange(e)} 
-                        required/>
+                        <input name="Info"
+                               id="info" type="text"
+                               className="popup__input popup__input_type_info"
+                               minLength="2"
+                               maxLength="200"
+                               value={profileDescription}
+                               onChange={(e) => handleDescriptionChange(e)}
+                               required/>
                         <span id="info-error" className="popup__error">&nbsp;</span>
                     </label>
                 </>

@@ -9,7 +9,9 @@ export default function PopupWithForm({isOpen, children, name, buttonValue, onCl
                 <button type="button" className="popup__close-button" onClick={() => {
                     onClose();
                 }}/>
-                <form onSubmit={(event)=> {onSubmit(event)}} name={`${name}-form`} className={`popup__form popup__form_${name}`} id={`${name}-form`}
+                <form onSubmit={(event) => {
+                    onSubmit(event)
+                }} name={`${name}-form`} className={`popup__form popup__form_${name}`} id={`${name}-form`}
                       method="post"
                       noValidate>
                     <fieldset className="popup__fieldset">

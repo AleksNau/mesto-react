@@ -45,26 +45,26 @@ const App = () => {
 
     function handleCardDelete(card) {
         api.deleteCard(card._id)
-        .then((newCard) => {
-            const newCards = cards.filter((c) =>
-              c._id === card._id ? "" : newCard
-            );
-            setCards(newCards);
-          })
+            .then((newCard) => {
+                const newCards = cards.filter((c) =>
+                    c._id === card._id ? "" : newCard
+                );
+                setCards(newCards);
+            })
             .catch((err) => {
                 console.log(err);
             })
-        }
+    }
 
-        function handleUpdateUser(data) {
-            api
-              .setName(data)
-              .then((newUser) => {
+    function handleUpdateUser(data) {
+        api
+            .setName(data)
+            .then((newUser) => {
                 setCurrentUser(newUser);
                 closeAllPopups();
-              })
-              .catch((err) => console.log(err));
-          }
+            })
+            .catch((err) => console.log(err));
+    }
 
 
     React.useEffect(() => {
@@ -78,37 +78,37 @@ const App = () => {
 
 
     return (
-        
+
         <div className="root">
             <myContext.Provider value={currentUser}>
-            <div className="page">
-            
-                <Header/>
-                <Main
-                    cards={cards}
-                    isPopupSubmit={isSubmitPopupOpen}
-                    handleEditAvatarClick={setPopupAvatar}
-                    handleEditProfileClick={setPopupProfile}
-                    onSubmitDelete={setPopupSubmit}
-                    handleAddPlaceClick={setPopupAdd}
-                    onCardClick={handleCardClick}
-                    onCardLike={handleCardLike}
-                    onCardDelete={handleCardDelete}
-                />
-                <Footer/>
-            </div>
-            <AddCardPopup isOpen={isAddPlacePopupOpen} name={"add"} onClose={closeAllPopups}/>
-            <EditProfilePopup 
-            isOpen={isEditProfilePopupOpen} 
-            popupName={"profile"} 
-            onClose={closeAllPopups}
-            onUpdateUser={handleUpdateUser}/>
-            <EditAvatarPopup isOpen={isPopupAvatar} name={"avatar"} onClose={closeAllPopups}/>
-            <SubmitPopup isOpen={isSubmitPopupOpen} name={"remove"} onClose={closeAllPopups}/>
-            <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
+                <div className="page">
+
+                    <Header/>
+                    <Main
+                        cards={cards}
+                        isPopupSubmit={isSubmitPopupOpen}
+                        handleEditAvatarClick={setPopupAvatar}
+                        handleEditProfileClick={setPopupProfile}
+                        onSubmitDelete={setPopupSubmit}
+                        handleAddPlaceClick={setPopupAdd}
+                        onCardClick={handleCardClick}
+                        onCardLike={handleCardLike}
+                        onCardDelete={handleCardDelete}
+                    />
+                    <Footer/>
+                </div>
+                <AddCardPopup isOpen={isAddPlacePopupOpen} name={"add"} onClose={closeAllPopups}/>
+                <EditProfilePopup
+                    isOpen={isEditProfilePopupOpen}
+                    popupName={"profile"}
+                    onClose={closeAllPopups}
+                    onUpdateUser={handleUpdateUser}/>
+                <EditAvatarPopup isOpen={isPopupAvatar} name={"avatar"} onClose={closeAllPopups}/>
+                <SubmitPopup isOpen={isSubmitPopupOpen} name={"remove"} onClose={closeAllPopups}/>
+                <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
             </myContext.Provider>
         </div>
-        
+
     );
 }
 

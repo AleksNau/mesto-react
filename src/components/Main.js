@@ -3,7 +3,7 @@ import myContext from '../contexts/CurrentUserContext';
 import Card from "./Card";
 
 
-const Main= ({
+const Main = ({
                   cards,
                   isPopupSubmit,
                   handleEditAvatarClick,
@@ -11,10 +11,10 @@ const Main= ({
                   handleAddPlaceClick,
                   onSubmitDelete,
                   onCardClick,
-    onCardLike,
-                 onCardDelete
+                  onCardLike,
+                  onCardDelete
               }) => {
-                const user = React.useContext(myContext);
+    const user = React.useContext(myContext);
     return (
         <main className="main">
             <section className="profile">

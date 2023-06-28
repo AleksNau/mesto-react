@@ -14,9 +14,10 @@ export default function Card({
     const user = React.useContext(myContext);
     const isOwn = cardForPop.owner._id === user._id;
     const isLiked = cardForPop.likes.some(i => i._id === user._id);
-    const cardLikeButtonClassName = ( 
-        `elements__like ${isLiked && 'elements__like_active'}` 
-      );; 
+    const cardLikeButtonClassName = (
+        `elements__like ${isLiked && 'elements__like_active'}`
+    );
+    ;
     return (
         <li className="elements__item">
             <img src={cardForPop.link} alt={cardForPop.name} className="elements__image" onClick={() => {
@@ -28,8 +29,10 @@ export default function Card({
                     <button type="button" className={cardLikeButtonClassName} onClick={() => onCardLike(cardForPop)}/>
                     <p className="elements__like-counter">{likes}</p>
                 </div>
-                {isOwn && <button type="button" className="elements__delete"  onClick={() => {setActive(!isOpen);
-                    handleDeleteClick(cardForPop)}}/>}
+                {isOwn && <button type="button" className="elements__delete" onClick={() => {
+                    setActive(!isOpen);
+                    handleDeleteClick(cardForPop)
+                }}/>}
             </div>
         </li>
     )
