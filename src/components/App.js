@@ -56,6 +56,16 @@ const App = () => {
             })
         }
 
+        function handleUpdateUser(data) {
+            api
+              .setName(data)
+              .then((newUser) => {
+                setCurrentUser(newUser);
+                closeAllPopups();
+              })
+              .catch((err) => console.log(err));
+          }
+
 
     React.useEffect(() => {
         Promise.all([api.getProfileInfo(), api.getCards()])
@@ -88,7 +98,7 @@ const App = () => {
                 <Footer/>
             </div>
             <AddCardPopup isOpen={isAddPlacePopupOpen} name={"add"} onClose={closeAllPopups}/>
-            <EditProfilePopup isOpen={isEditProfilePopupOpen} name={"profile"} onClose={closeAllPopups}/>
+            <EditProfilePopup isOpen={isEditProfilePopupOpen} popupName={"profile"} onClose={closeAllPopups}/>
             <EditAvatarPopup isOpen={isPopupAvatar} name={"avatar"} onClose={closeAllPopups}/>
             <SubmitPopup isOpen={isSubmitPopupOpen} name={"remove"} onClose={closeAllPopups}/>
             <ImagePopup card={selectedCard} onClose={closeAllPopups}/>

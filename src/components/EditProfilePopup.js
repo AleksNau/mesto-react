@@ -2,8 +2,9 @@ import React from 'react';
 import PopupWithForm from './PopupWithForm';
 import myContext from '../contexts/CurrentUserContext';
 
-export default function EditProfilePopup({isOpen, name, onClose}) {
+export default function EditProfilePopup({isOpen, popupName, onClose}) {
     const currentUser = React.useContext(myContext);
+    const { name, about } = currentUser;
     const [profileName, setProfileName] = React.useState("");
     const [profileDescription , setProfileDescription] = React.useState("");
 
@@ -15,17 +16,27 @@ export default function EditProfilePopup({isOpen, name, onClose}) {
       }, [isOpen, currentUser]);
 
     function handleNameChange(e) {
-        setpProfileName(e.target.value);
+        setProfileName(e.target.value);
       }
       // input change
       function handleDescriptionChange(e) {
         setProfileDescription(e.target.value);
       }
 
+      function handleSubmit(e) {
+  e.preventDefault();
+  // Передаём значения управляемых компонентов во внешний обработчик
+  props.onUpdateUser({
+    name:profileName,
+    about: profileDescription,
+  });
+}
+
     return (
         <PopupWithForm
             isOpen={isOpen}
-            name={name}
+            onSubmit={handleSubmit}
+            name={popupName}
             buttonValue={"Сохранить"}
             onClose={onClose}
             children={
