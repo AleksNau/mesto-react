@@ -45,16 +45,15 @@ const App = () => {
 
     function handleCardDelete(card) {
         api.deleteCard(card._id)
-            .then(() => {
-                card.deleteCard();
-                //removePopupClass.close();
-            })
+        .then((newCard) => {
+            const newCards = cards.filter((c) =>
+              c._id === card._id ? "" : newCard
+            );
+            setCards(newCards);
+          })
             .catch((err) => {
                 console.log(err);
             })
-            .finally(() => {
-               // removePopupClass.renderLoading();
-            });
         }
 
 
