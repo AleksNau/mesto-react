@@ -1,25 +1,69 @@
 import React from 'react';
 import PopupWithForm from './PopupWithForm';
 
-export default function AddCardPopup({isOpen, name, onClose}) {
+export default function AddCardPopup({isOpen, popupName, onClose,onAddPlace}) {
+    const [name, setName] = React.useState("");
+    const [link, setLink] = React.useState("");
+
+    React.useEffect(() => {
+        if (isOpen) {
+            setName("");
+            setLink("");
+        }
+    }, [isOpen]);
+
+    function handleNameChange(e) {
+        setName(e.target.value);
+    }
+
+    // input change
+    function handleLinkChange(e) {
+        setLink(e.target.value);
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        // Передаём значения управляемых компонентов во внешний обработчик
+        onAddPlace({
+            name: name,
+            link: link,
+        });
+    }
+
     return (
         <PopupWithForm
             isOpen={isOpen}
-            name={name}
+            name={popupName}
             buttonValue={"Создать"}
             onClose={onClose}
+            onSubmit={handleSubmit}
             children={
                 <>
                     <legend className="popup__title">Новое место</legend>
                     <label>
-                        <input name="name" id="place" type="text" className="popup__input popup__input_type_place"
-                               placeholder="Название" minLength="2" maxLength="30" required/>
+                        <input 
+                        name="name" 
+                        id="place" 
+                        type="text" 
+                        className="popup__input popup__input_type_place"
+                        placeholder="Название" 
+                        minLength="2" 
+                        maxLength="30"
+                        onChange={handleNameChange}
+                        value={name} 
+                        required/>
                         <span id="place-error" className="popup__error"></span>
                     </label>
                     <label>
-                        <input name="link" id="image-link" type="url"
-                               className="popup__input popup__input_type_image-link" placeholder="Ссылка на картинку"
-                               required/>
+                        <input 
+                        name="link" 
+                        id="image-link" 
+                        type="url"
+                        className="popup__input popup__input_type_image-link" 
+                        placeholder="Ссылка на картинку"
+                        onChange={handleLinkChange}
+                        value={link}
+                        required/>
                         <span id="image-link-error" className="popup__error"></span>
                     </label>
                 </>

@@ -117,16 +117,24 @@ const App = () => {
                     />
                     <Footer/>
                 </div>
-                <AddCardPopup isOpen={isAddPlacePopupOpen} name={"add"} onClose={closeAllPopups}/>
+                <AddCardPopup 
+                isOpen={isAddPlacePopupOpen} 
+                name={"add"} 
+                onClose={closeAllPopups}
+                onAddPlace ={handleAddPlaceSubmit}
+                />
                 <EditProfilePopup
-                    isOpen={isEditProfilePopupOpen}
-                    popupName={"profile"}
-                    onClose={closeAllPopups}
-                    onUpdateUser={handleUpdateUser}/>
-                <EditAvatarPopup isOpen={isPopupAvatar}
-                                 name={"avatar"}
-                                 onClose={closeAllPopups}
-                                 onUpdateAvatar={handleUpdateAvatar}/>
+                isOpen={isEditProfilePopupOpen}
+                popupName={"profile"}
+                onClose={closeAllPopups}
+                onUpdateUser={handleUpdateUser}
+                    />
+                <EditAvatarPopup 
+                isOpen={isPopupAvatar}
+                name={"avatar"}
+                onClose={closeAllPopups}
+                onUpdateAvatar={handleUpdateAvatar}
+                />
                 <SubmitPopup isOpen={isSubmitPopupOpen} name={"remove"} onClose={closeAllPopups}/>
                 <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
             </myContext.Provider>
