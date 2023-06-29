@@ -76,6 +76,16 @@ const App = () => {
             .catch((err) => console.log(err));
     }
 
+    function handleAddPlaceSubmit(data) {
+        api
+            .newCard(data.name,data.link)
+            .then((newCard)=> {
+                setCards([newCard, ...cards]); 
+                closeAllPopups();
+            })
+            .catch((err) => console.log(err));
+    }
+
 
     React.useEffect(() => {
         Promise.all([api.getProfileInfo(), api.getCards()])
