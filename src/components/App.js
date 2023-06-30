@@ -26,7 +26,7 @@ const App = () => {
     //установить карточку
     const [selectedCard, handleCardClick] = useState({});
     //обработчик загрузки
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     function closeAllPopups() {
         setPopupAvatar(false);
@@ -124,8 +124,9 @@ const App = () => {
     return (
 
         <div className="root">
-            <myContext.Provider value={currentUser}>
             <loadingText.Provider value={isLoading}>
+            <myContext.Provider value={currentUser}>
+            
                 <div className="page">
 
                     <Header/>
@@ -164,8 +165,9 @@ const App = () => {
                 />
                 <SubmitPopup isOpen={isSubmitPopupOpen} name={"remove"} onClose={closeAllPopups} onDelete={handleCardDelete} cardToDelete={cardToDelete}/>
                 <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
-                </loadingText.Provider>
+                
             </myContext.Provider>
+            </loadingText.Provider>
         </div>
 
     );
