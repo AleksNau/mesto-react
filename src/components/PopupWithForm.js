@@ -1,6 +1,7 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 export default function PopupWithForm({isOpen, children, name, buttonValue, onClose, onSubmit}) {
+    const [isLoading, setValueLoading] = useState(false);
     return (
         <div className={isOpen ? `popup popup_${name} popup_opened ` : `popup`} onClick={() => {
             onClose();
@@ -11,7 +12,10 @@ export default function PopupWithForm({isOpen, children, name, buttonValue, onCl
                 }}/>
                 <form onSubmit={(event) => {
                     event.preventDefault();
-                    onSubmit(event)
+                    setValueLoading(!isLoading)
+                    onSubmit(event);
+                    setValueLoading(!isLoading)
+                
                 }} name={`${name}-form`} className={`popup__form popup__form_${name}`} id={`${name}-form`}
                       method="post"
                       noValidate>
@@ -19,7 +23,7 @@ export default function PopupWithForm({isOpen, children, name, buttonValue, onCl
                         
                         {children}
                         <button type="submit" className="popup__submit" form={`${name}-form`}
-                                value="Сохранить изменения">{buttonValue}</button>
+                                value="Сохранить изменения">{isLoading ? 'Сохранение...': "Сохранить"}</button>
                     </fieldset>
                 </form>
             </div>
