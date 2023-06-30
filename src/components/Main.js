@@ -12,7 +12,8 @@ const Main = ({
                   onSubmitDelete,
                   onCardClick,
                   onCardLike,
-                  onCardDelete
+                  onCardDelete,
+                  setCardToDelete
               }) => {
     const user = React.useContext(myContext);
     return (
@@ -47,6 +48,7 @@ const Main = ({
                         getCard={onCardClick}
                         onCardLike={onCardLike}
                         handleDeleteClick={onCardDelete}
+                        setCardToDelete={setCardToDelete}
                     />
                 ))}
             </ul>

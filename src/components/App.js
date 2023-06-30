@@ -21,7 +21,7 @@ const App = () => {
     const [isSubmitPopupOpen, setPopupSubmit] = useState(false);
 
     //пр11 начало
-
+    const [cardToDelete, setCardToDelete] = useState({});
     //установить карточку
     const [selectedCard, handleCardClick] = useState([]);
 
@@ -125,6 +125,7 @@ const App = () => {
                         onCardClick={handleCardClick}
                         onCardLike={handleCardLike}
                         onCardDelete={handleCardDelete}
+                        setCardToDelete={setCardToDelete}
                     />
                     <Footer/>
                 </div>
@@ -146,7 +147,7 @@ const App = () => {
                 onClose={closeAllPopups}
                 onUpdateAvatar={handleUpdateAvatar}
                 />
-                <SubmitPopup isOpen={isSubmitPopupOpen} name={"remove"} onClose={closeAllPopups}/>
+                <SubmitPopup isOpen={isSubmitPopupOpen} name={"remove"} onClose={closeAllPopups} onDelete={handleCardDelete} cardToDelete={cardToDelete}/>
                 <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
             </myContext.Provider>
         </div>

@@ -9,7 +9,8 @@ export default function Card({
                                  cardForPop,
                                  getCard,
                                  onCardLike,
-                                 handleDeleteClick
+                                 handleDeleteClick,
+                                 setCardToDelete
                              }) {
     const user = React.useContext(myContext);
     const isOwn = cardForPop.owner._id === user._id;
@@ -31,7 +32,7 @@ export default function Card({
                 </div>
                 {isOwn && <button type="button" className="elements__delete" onClick={() => {
                     setActive(!isOpen);
-                    handleDeleteClick(cardForPop)
+                    setCardToDelete(cardForPop)
                 }}/>}
             </div>
         </li>
