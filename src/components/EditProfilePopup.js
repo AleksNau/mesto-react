@@ -1,12 +1,15 @@
 import React from 'react';
 import PopupWithForm from './PopupWithForm';
 import myContext from '../contexts/CurrentUserContext';
+import loadingText from '../contexts/loadingContext';
 
 export default function EditProfilePopup({onUpdateUser, isOpen, popupName, onClose}) {
     const currentUser = React.useContext(myContext);
     const {name, about} = currentUser;
     const [profileName, setProfileName] = React.useState("");
     const [profileDescription, setProfileDescription] = React.useState("");
+    const load = React.useContext(loadingText);
+    const {isLoading} = load;
 
     React.useEffect(() => {
         if (isOpen) {
@@ -36,7 +39,7 @@ export default function EditProfilePopup({onUpdateUser, isOpen, popupName, onClo
             isOpen={isOpen}
             onSubmit={handleSubmit}
             name={popupName}
-            buttonValue={"Сохранить"}
+            buttonValue={isLoading ? "Сохранение..." : "Сохранить"}
             onClose={onClose}
             children={
                 <>

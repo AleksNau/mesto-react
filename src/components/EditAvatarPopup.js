@@ -1,8 +1,12 @@
 import React from 'react';
 import PopupWithForm from './PopupWithForm';
+import loadingText from '../contexts/loadingContext';
 
 export default function EditAvatarPopup({isOpen, name, onClose,onUpdateAvatar}) {
     const imageLink = React.useRef();
+    const load = React.useContext(loadingText);
+    const {isLoading} = load;
+
     function handleSubmit() {
         onUpdateAvatar({
             avatar: imageLink.current.value,
@@ -12,7 +16,7 @@ export default function EditAvatarPopup({isOpen, name, onClose,onUpdateAvatar}) 
         <PopupWithForm
             isOpen={isOpen}
             name={name}
-            buttonValue={"Сохранить"}
+            buttonValue={isLoading ? "Сохранение..." : "Сохранить"}
             onClose={onClose}
             onSubmit={handleSubmit}
             children={

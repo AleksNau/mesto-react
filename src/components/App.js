@@ -10,6 +10,7 @@ import SubmitPopup from './SubmitPopup.js';
 import EditAvatarPopup from './EditAvatarPopup.js';
 import ImagePopup from "./ImagePopup";
 import myContext from "../contexts/CurrentUserContext";
+import loadingText from '../contexts/loadingContext';
 
 const App = () => {
     const [cards, setCards] = useState([]);
@@ -24,6 +25,8 @@ const App = () => {
     const [cardToDelete, setCardToDelete] = useState({});
     //установить карточку
     const [selectedCard, handleCardClick] = useState({});
+    //обработчик загрузки
+    const [isLoading, setIsLoading] = useState(false);
 
     function closeAllPopups() {
         setPopupAvatar(false);
@@ -55,6 +58,7 @@ const App = () => {
     }
 
     function handleCardDelete(card) {
+        setIsLoading(true);
         api.deleteCard(card._id)
             .then((newCard) => {
                 const newCards = cards.filter((c) =>
@@ -65,37 +69,45 @@ const App = () => {
             .catch((err) => {
                 console.log(err);
             })
-            .finally(()=>closeAllPopups())
+            .finally(()=>{
+                setIsLoading(false);
+                closeAllPopups()})
     }
 
     function handleUpdateUser(data) {
+        setIsLoading(true);
         api
             .setName(data)
             .then((newUser) => {
                 setCurrentUser(newUser);
                 closeAllPopups();
             })
-            .catch((err) => console.log(err));
+            .catch((err) => console.log(err))
+            .finally(()=> setIsLoading(false))
     }
 
     function handleUpdateAvatar(data) {
+        setIsLoading(true);
         api
             .sendAvatar(data.avatar)
             .then((newAvatar) => {
                 setCurrentUser(newAvatar);
                 closeAllPopups();
             })
-            .catch((err) => console.log(err));
+            .catch((err) => console.log(err))
+            .finally(()=> setIsLoading(false))
     }
 
     function handleAddPlaceSubmit(data) {
+        setIsLoading(true);
         api
             .newCard(data.name,data.link)
             .then((newCard)=> {
                 setCards([newCard, ...cards]); 
                 closeAllPopups();
             })
-            .catch((err) => console.log(err));
+            .catch((err) => console.log(err))
+            .finally(()=> setIsLoading(false))
     }
 
 
@@ -113,6 +125,7 @@ const App = () => {
 
         <div className="root">
             <myContext.Provider value={currentUser}>
+            <loadingText.Provider value={isLoading}>
                 <div className="page">
 
                     <Header/>
@@ -130,6 +143,7 @@ const App = () => {
                     />
                     <Footer/>
                 </div>
+                
                 <AddCardPopup 
                 isOpen={isAddPlacePopupOpen} 
                 name={"add"} 
@@ -150,6 +164,7 @@ const App = () => {
                 />
                 <SubmitPopup isOpen={isSubmitPopupOpen} name={"remove"} onClose={closeAllPopups} onDelete={handleCardDelete} cardToDelete={cardToDelete}/>
                 <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
+                </loadingText.Provider>
             </myContext.Provider>
         </div>
 
