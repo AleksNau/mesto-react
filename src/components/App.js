@@ -23,14 +23,14 @@ const App = () => {
     //пр11 начало
     const [cardToDelete, setCardToDelete] = useState({});
     //установить карточку
-    const [selectedCard, handleCardClick] = useState([]);
+    const [selectedCard, handleCardClick] = useState({});
 
     function closeAllPopups() {
         setPopupAvatar(false);
         setPopupProfile(false);
         setPopupAdd(false);
         setPopupSubmit(false);
-        handleCardClick([]);
+        handleCardClick({});
     }
 
     function handleCardLike(card) {
