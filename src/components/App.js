@@ -65,6 +65,7 @@ const App = () => {
             .catch((err) => {
                 console.log(err);
             })
+            .finally(()=>closeAllPopups())
     }
 
     function handleUpdateUser(data) {
