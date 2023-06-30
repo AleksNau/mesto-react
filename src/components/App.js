@@ -38,9 +38,20 @@ const App = () => {
         const isLiked = card.likes.some(i => i._id === currentUser._id);
 
         // Отправляем запрос в API и получаем обновлённые данные карточки
-        api.putLike(card._id, !isLiked).then((newCard) => {
-            setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-        });
+        if (!isLiked){
+            api.putLike(card._id, !isLiked).then((newCard) => {
+                setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
+            });
+        }else {
+            api
+                .deleteLike(card._id, !isLiked)
+                .then((newCard) => {
+                    setCards((state) =>
+                        state.map((c) => (c._id === card._id ? newCard : c))
+                    );
+                })
+                .catch((err) => console.log(err));
+        }
     }
 
     function handleCardDelete(card) {
