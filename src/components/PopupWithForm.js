@@ -16,6 +16,7 @@ export default function PopupWithForm({isOpen, children, name, buttonValue, onCl
                       method="post"
                       noValidate>
                     <fieldset className="popup__fieldset">
+                        
                         {children}
                         <button type="submit" className="popup__submit" form={`${name}-form`}
                                 value="Сохранить изменения">{buttonValue}</button>

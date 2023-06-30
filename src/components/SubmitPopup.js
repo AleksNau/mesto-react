@@ -17,6 +17,7 @@ export default function SubmitPopup({isOpen, name, onClose,onDelete,cardToDelete
             children={
                 <>
                     <legend className="popup__title popup__title_remove">Вы уверены?</legend>
+                    <input className="popup__input_none"  name="input-submit" ></input>
                 </>
             }
         />
