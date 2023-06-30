@@ -3,8 +3,7 @@ import PopupWithForm from './PopupWithForm';
 
 export default function SubmitPopup({isOpen, name, onClose,onDelete,cardToDelete}) {
 
-    function handleSubmit(e) {
-        e.preventDefault();
+    function handleSubmit() {
         // Передаём значения управляемых компонентов во внешний обработчик
         onDelete(cardToDelete);
     }

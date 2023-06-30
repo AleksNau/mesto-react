@@ -3,9 +3,7 @@ import PopupWithForm from './PopupWithForm';
 
 export default function EditAvatarPopup({isOpen, name, onClose,onUpdateAvatar}) {
     const imageLink = React.useRef();
-    function handleSubmit(e) {
-        e.preventDefault();
-
+    function handleSubmit() {
         onUpdateAvatar({
             avatar: imageLink.current.value,
         });

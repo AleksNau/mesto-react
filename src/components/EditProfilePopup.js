@@ -24,9 +24,7 @@ export default function EditProfilePopup({onUpdateUser, isOpen, popupName, onClo
         setProfileDescription(e.target.value);
     }
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        // Передаём значения управляемых компонентов во внешний обработчик
+    function handleSubmit() {
         onUpdateUser({
             Name: profileName,
             Info: profileDescription,

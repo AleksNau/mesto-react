@@ -21,9 +21,8 @@ export default function AddCardPopup({isOpen, popupName, onClose,onAddPlace}) {
         setLink(e.target.value);
     }
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        // Передаём значения управляемых компонентов во внешний обработчик
+    function handleSubmit() {
+
         onAddPlace({
             name: name,
             link: link,
