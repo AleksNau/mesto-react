@@ -43,8 +43,9 @@ const App = () => {
         if (!isLiked){
             api.putLike(card._id, !isLiked)
                  .then((newCard) => {
-                     setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-                 });
+                     setCards((state) => state.map((c) => c._id === card._id ? newCard : c))
+                 })
+                 .catch((err) => console.log(err));
         }else {
             api.deleteLike(card._id, !isLiked)
                 .then((newCard) => {
@@ -64,13 +65,14 @@ const App = () => {
                     c._id === card._id ? "" : newCard
                 );
                 setCards(newCards);
+                closeAllPopups();
             })
             .catch((err) => {
                 console.log(err);
             })
             .finally(()=>{
                 setIsLoading(false);
-                closeAllPopups()})
+                })
     }
 
     function handleUpdateUser(data) {
