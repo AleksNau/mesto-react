@@ -1,10 +1,10 @@
 import React from 'react';
 import PopupWithForm from './PopupWithForm';
-import myContext from '../contexts/CurrentUserContext';
+import currentUserContext from '../contexts/CurrentUserContext';
 import loadingText from '../contexts/loadingContext';
 
 export default function EditProfilePopup({onUpdateUser, isOpen, popupName, onClose}) {
-    const currentUser = React.useContext(myContext);
+    const currentUser = React.useContext(currentUserContext);
     const {name, about} = currentUser;
     const [profileName, setProfileName] = React.useState("");
     const [profileDescription, setProfileDescription] = React.useState("");

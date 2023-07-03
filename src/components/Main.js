@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import myContext from '../contexts/CurrentUserContext';
+import currentUserContext from '../contexts/CurrentUserContext';
 import Card from "./Card";
 
 
@@ -15,7 +15,7 @@ const Main = ({
                   onCardDelete,
                   setCardToDelete
               }) => {
-    const user = React.useContext(myContext);
+    const user = React.useContext(currentUserContext);
     return (
         <main className="main">
             <section className="profile">
@@ -40,7 +40,7 @@ const Main = ({
             <ul className="elements">
                 {cards.map((card) => (
                     <Card
-                        cardForPop={card}
+                        cardData={card}
                         key={card._id}
                         likes={card.likes.length}
                         isOpen={isPopupSubmit}

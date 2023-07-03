@@ -9,7 +9,7 @@ import EditProfilePopup from './EditProfilePopup.js';
 import SubmitPopup from './SubmitPopup.js';
 import EditAvatarPopup from './EditAvatarPopup.js';
 import ImagePopup from "./ImagePopup";
-import myContext from "../contexts/CurrentUserContext";
+import currentUserContext from "../contexts/CurrentUserContext";
 import loadingText from '../contexts/loadingContext';
 
 const App = () => {
@@ -21,7 +21,6 @@ const App = () => {
     const [isAddPlacePopupOpen, setPopupAdd] = useState(false);
     const [isSubmitPopupOpen, setPopupSubmit] = useState(false);
 
-    //пр11 начало
     const [cardToDelete, setCardToDelete] = useState({});
     //установить карточку
     const [selectedCard, handleCardClick] = useState({});
@@ -42,12 +41,12 @@ const App = () => {
 
         // Отправляем запрос в API и получаем обновлённые данные карточки
         if (!isLiked){
-            api.putLike(card._id, !isLiked).then((newCard) => {
-                setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-            });
+            api.putLike(card._id, !isLiked)
+                 .then((newCard) => {
+                     setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
+                 });
         }else {
-            api
-                .deleteLike(card._id, !isLiked)
+            api.deleteLike(card._id, !isLiked)
                 .then((newCard) => {
                     setCards((state) =>
                         state.map((c) => (c._id === card._id ? newCard : c))
@@ -76,8 +75,7 @@ const App = () => {
 
     function handleUpdateUser(data) {
         setIsLoading(true);
-        api
-            .setName(data)
+        api.setName(data)
             .then((newUser) => {
                 setCurrentUser(newUser);
                 closeAllPopups();
@@ -88,8 +86,7 @@ const App = () => {
 
     function handleUpdateAvatar(data) {
         setIsLoading(true);
-        api
-            .sendAvatar(data.avatar)
+        api.sendAvatar(data.avatar)
             .then((newAvatar) => {
                 setCurrentUser(newAvatar);
                 closeAllPopups();
@@ -100,8 +97,7 @@ const App = () => {
 
     function handleAddPlaceSubmit(data) {
         setIsLoading(true);
-        api
-            .newCard(data.name,data.link)
+        api.newCard(data.name,data.link)
             .then((newCard)=> {
                 setCards([newCard, ...cards]); 
                 closeAllPopups();
@@ -125,7 +121,7 @@ const App = () => {
 
         <div className="root">
             <loadingText.Provider value={isLoading}>
-            <myContext.Provider value={currentUser}>
+            <currentUserContext.Provider value={currentUser}>
             
                 <div className="page">
 
@@ -166,7 +162,7 @@ const App = () => {
                 <SubmitPopup isOpen={isSubmitPopupOpen} name={"remove"} onClose={closeAllPopups} onDelete={handleCardDelete} cardToDelete={cardToDelete}/>
                 <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
                 
-            </myContext.Provider>
+            </currentUserContext.Provider>
             </loadingText.Provider>
         </div>
 
