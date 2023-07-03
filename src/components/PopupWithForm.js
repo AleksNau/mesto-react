@@ -6,9 +6,7 @@ export default function PopupWithForm({isOpen, children, name, buttonValue, onCl
             onClose();
         }}>
             <div className="popup__conteiner" onClick={event => event.stopPropagation()}>
-                <button type="button" className="popup__close-button" onClick={() => {
-                    onClose();
-                }}/>
+                <button type="button" className="popup__close-button" onClick={onClose}/>
                 <form onSubmit={(event) => {
                     event.preventDefault();
                     onSubmit(event)
