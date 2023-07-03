@@ -8,8 +8,7 @@ export default function EditProfilePopup({onUpdateUser, isOpen, popupName, onClo
     const {name, about} = currentUser;
     const [profileName, setProfileName] = React.useState("");
     const [profileDescription, setProfileDescription] = React.useState("");
-    const load = React.useContext(loadingText);
-    const {isLoading} = load;
+    const isLoading = React.useContext(loadingText);
 
     React.useEffect(() => {
         if (isOpen) {

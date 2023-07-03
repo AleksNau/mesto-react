@@ -26,7 +26,7 @@ const App = () => {
     //установить карточку
     const [selectedCard, handleCardClick] = useState({});
     //обработчик загрузки
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
     function closeAllPopups() {
         setPopupAvatar(false);

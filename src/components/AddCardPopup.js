@@ -5,8 +5,7 @@ import PopupWithForm from './PopupWithForm';
 export default function AddCardPopup({isOpen, popupName, onClose,onAddPlace}) {
     const [name, setName] = React.useState("");
     const [link, setLink] = React.useState("");
-    const load = React.useContext(loadingText);
-    const {isLoading} = load;
+    const isLoading = React.useContext(loadingText);
 
     React.useEffect(() => {
         if (isOpen) {
