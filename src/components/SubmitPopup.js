@@ -17,11 +17,7 @@ export default function SubmitPopup({isOpen, name, onClose,onDelete,cardToDelete
             buttonValue={isLoading ? "Сохранение..." : "Да"}
             onClose={onClose}
             onSubmit={handleSubmit}
-            children={
-                <>
-                    <legend className="popup__title popup__title_remove">Вы уверены?</legend>
-                </>
-            }
+            tittle={'Вы уверены?'}
         />
     )
 }

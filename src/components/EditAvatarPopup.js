@@ -18,9 +18,9 @@ export default function EditAvatarPopup({isOpen, name, onClose,onUpdateAvatar}) 
             buttonValue={isLoading ? "Сохранение..." : "Сохранить"}
             onClose={onClose}
             onSubmit={handleSubmit}
+            tittle={'Обновить аватар'}
             children={
                 <>
-                    <legend className="popup__title">Обновить аватар</legend>
                     <label>
                         <input name="link"
                                ref={imageLink}

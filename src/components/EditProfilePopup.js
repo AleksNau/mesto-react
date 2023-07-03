@@ -40,9 +40,9 @@ export default function EditProfilePopup({onUpdateUser, isOpen, popupName, onClo
             name={popupName}
             buttonValue={isLoading ? "Сохранение..." : "Сохранить"}
             onClose={onClose}
+            tittle={'Редактировать профиль'}
             children={
                 <>
-                    <legend className="popup__title">Редактировать профиль</legend>
                     <label>
                         <input name="Name"
                                id="name" type="text"

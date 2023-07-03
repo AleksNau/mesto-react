@@ -38,9 +38,10 @@ export default function AddCardPopup({isOpen, popupName, onClose,onAddPlace}) {
             buttonValue={isLoading ? "Сохранение..." : "Создать" }
             onClose={onClose}
             onSubmit={handleSubmit}
+            tittle={'Новое место'}
             children={
                 <>
-                    <legend className="popup__title">Новое место</legend>
+                    
                     <label>
                         <input 
                         name="name" 
