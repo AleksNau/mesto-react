@@ -1,5 +1,5 @@
 import React from "react";
 
-const loadingText = React.createContext();
+const LoadingText = React.createContext();
 
-export default loadingText;
+export default LoadingText;

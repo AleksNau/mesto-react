@@ -1,5 +1,5 @@
 import React from "react";
-import currentUserContext from "../contexts/CurrentUserContext";
+import CurrentUserContext from "../contexts/CurrentUserContext";
 
 export default function Card({
   likes,
@@ -10,7 +10,7 @@ export default function Card({
   onCardLike,
   setCardToDelete,
 }) {
-  const user = React.useContext(currentUserContext);
+  const user = React.useContext(CurrentUserContext);
   const isOwn = cardData.owner._id === user._id;
   const isLiked = cardData.likes.some((i) => i._id === user._id);
   const cardLikeButtonClassName = `elements__like ${

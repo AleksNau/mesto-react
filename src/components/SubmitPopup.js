@@ -1,6 +1,6 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
-import loadingText from "../contexts/loadingContext";
+import LoadingText from "../contexts/loadingContext";
 
 export default function SubmitPopup({
   isOpen,
@@ -9,7 +9,7 @@ export default function SubmitPopup({
   onDelete,
   cardToDelete,
 }) {
-  const isLoading = React.useContext(loadingText);
+  const isLoading = React.useContext(LoadingText);
 
   function handleSubmit() {
     // Передаём значения управляемых компонентов во внешний обработчик

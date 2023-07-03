@@ -1,5 +1,5 @@
 import React from "react";
-import loadingText from "../contexts/loadingContext";
+import LoadingText from "../contexts/loadingContext";
 import PopupWithForm from "./PopupWithForm";
 
 export default function AddCardPopup({
@@ -10,7 +10,7 @@ export default function AddCardPopup({
 }) {
   const [name, setName] = React.useState("");
   const [link, setLink] = React.useState("");
-  const isLoading = React.useContext(loadingText);
+  const isLoading = React.useContext(LoadingText);
 
   React.useEffect(() => {
     if (isOpen) {

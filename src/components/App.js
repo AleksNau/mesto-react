@@ -9,8 +9,8 @@ import EditProfilePopup from "./EditProfilePopup.js";
 import SubmitPopup from "./SubmitPopup.js";
 import EditAvatarPopup from "./EditAvatarPopup.js";
 import ImagePopup from "./ImagePopup";
-import currentUserContext from "../contexts/CurrentUserContext";
-import loadingText from "../contexts/loadingContext";
+import CurrentUserContext from "../contexts/CurrentUserContext";
+import LoadingText from "../contexts/loadingContext";
 
 const App = () => {
   const [cards, setCards] = useState([]);
@@ -127,8 +127,8 @@ const App = () => {
 
   return (
     <div className="root">
-      <loadingText.Provider value={isLoading}>
-        <currentUserContext.Provider value={currentUser}>
+      <LoadingText.Provider value={isLoading}>
+        <CurrentUserContext.Provider value={currentUser}>
           <div className="page">
             <Header />
             <Main
@@ -172,8 +172,8 @@ const App = () => {
             cardToDelete={cardToDelete}
           />
           <ImagePopup card={selectedCard} onClose={closeAllPopups} />
-        </currentUserContext.Provider>
-      </loadingText.Provider>
+        </CurrentUserContext.Provider>
+      </LoadingText.Provider>
     </div>
   );
 };

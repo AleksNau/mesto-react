@@ -1,6 +1,6 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
-import loadingText from "../contexts/loadingContext.js";
+import LoadingText from "../contexts/loadingContext.js";
 
 export default function EditAvatarPopup({
   isOpen,
@@ -9,7 +9,7 @@ export default function EditAvatarPopup({
   onUpdateAvatar,
 }) {
   const imageLink = React.useRef();
-  const isLoading = React.useContext(loadingText);
+  const isLoading = React.useContext(LoadingText);
 
   function handleSubmit() {
     onUpdateAvatar({

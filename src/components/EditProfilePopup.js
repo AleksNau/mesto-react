@@ -1,7 +1,7 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
-import currentUserContext from "../contexts/CurrentUserContext";
-import loadingText from "../contexts/loadingContext";
+import CurrentUserContext from "../contexts/CurrentUserContext";
+import LoadingText from "../contexts/loadingContext";
 
 export default function EditProfilePopup({
   onUpdateUser,
@@ -9,11 +9,11 @@ export default function EditProfilePopup({
   popupName,
   onClose,
 }) {
-  const currentUser = React.useContext(currentUserContext);
+  const currentUser = React.useContext(CurrentUserContext);
   const { name, about } = currentUser;
   const [profileName, setProfileName] = React.useState("");
   const [profileDescription, setProfileDescription] = React.useState("");
-  const isLoading = React.useContext(loadingText);
+  const isLoading = React.useContext(LoadingText);
 
   React.useEffect(() => {
     if (isOpen) {
