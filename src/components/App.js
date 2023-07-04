@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "../index.css";
 import Footer from "./Footer.js";
 import Header from "./Header.js";
@@ -35,6 +35,23 @@ const App = () => {
     handleCardClick({});
   }
 
+  const isOpen = isPopupAvatar || isEditProfilePopupOpen || isAddPlacePopupOpen || selectedCard.link
+
+  useEffect(() => {
+    function closeByEscape(evt) {
+      if(evt.key === 'Escape') {
+        closeAllPopups();
+      }
+    }
+    if(isOpen) { // навешиваем только при открытии
+      document.addEventListener('keydown', closeByEscape);
+      return () => {
+        document.removeEventListener('keydown', closeByEscape);
+      }
+    }
+  }, [isOpen])
+
+
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
@@ -48,7 +65,7 @@ const App = () => {
             state.map((c) => (c._id === card._id ? newCard : c))
           );
         })
-        .catch((err) => console.log(err));
+        .catch(console.error);
     } else {
       api
         .deleteLike(card._id, !isLiked)
@@ -57,7 +74,7 @@ const App = () => {
             state.map((c) => (c._id === card._id ? newCard : c))
           );
         })
-        .catch((err) => console.log(err));
+        .catch(console.error);
     }
   }
 
@@ -65,16 +82,11 @@ const App = () => {
     setIsLoading(true);
     api
       .deleteCard(card._id)
-      .then((newCard) => {
-        const newCards = cards.filter((c) =>
-          c._id === card._id ? "" : newCard
-        );
-        setCards(newCards);
+      .then(() => {
+        setCards((state) => state.filter((item) => item._id !== card._id));
         closeAllPopups();
       })
-      .catch((err) => {
-        console.log(err);
-      })
+      .catch(console.error)
       .finally(() => {
         setIsLoading(false);
       });
@@ -88,7 +100,7 @@ const App = () => {
         setCurrentUser(newUser);
         closeAllPopups();
       })
-      .catch((err) => console.log(err))
+      .catch(console.error)
       .finally(() => setIsLoading(false));
   }
 
@@ -100,7 +112,7 @@ const App = () => {
         setCurrentUser(newAvatar);
         closeAllPopups();
       })
-      .catch((err) => console.log(err))
+      .catch(console.error)
       .finally(() => setIsLoading(false));
   }
 
@@ -112,7 +124,7 @@ const App = () => {
         setCards([newCard, ...cards]);
         closeAllPopups();
       })
-      .catch((err) => console.log(err))
+      .catch(console.error)
       .finally(() => setIsLoading(false));
   }
 
@@ -122,7 +134,7 @@ const App = () => {
         setCurrentUser(info);
         setCards(cards);
       })
-      .catch((err) => console.log(err));
+      .catch(console.error);
   }, []);
 
   return (

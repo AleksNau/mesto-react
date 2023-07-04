@@ -23,7 +23,6 @@ export default function AddCardPopup({
     setName(e.target.value);
   }
 
-  // input change
   function handleLinkChange(e) {
     setLink(e.target.value);
   }
