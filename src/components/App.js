@@ -35,7 +35,7 @@ const App = () => {
     handleCardClick({});
   }
 
-  const isOpen = isPopupAvatar || isEditProfilePopupOpen || isAddPlacePopupOpen || selectedCard.link
+  const isOpen = isPopupAvatar || isEditProfilePopupOpen || isAddPlacePopupOpen || selectedCard.link;
 
   useEffect(() => {
     function closeByEscape(evt) {
